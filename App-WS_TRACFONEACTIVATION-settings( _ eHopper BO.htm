@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<!-- saved from url=(0111)http://kv-wsweb-qa.qa.b2bsoft.com:8090/#app-WS_TRACFONEACTIVATION-settings/ad1ebc20-ff01-4490-85ee-033806a174e6 -->
+<html lang="en-us" style="display: block;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- domain:kv-wsweb-qa.qa.b2bsoft.com:8090 -->
+    <title>App-WS_TRACFONEACTIVATION-settings( | eHopper BO</title>
+    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="main-built" src="./App-WS_TRACFONEACTIVATION-settings( _ eHopper BO_files/main-built.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="langs" src="./App-WS_TRACFONEACTIVATION-settings( _ eHopper BO_files/Get"></script><!--<base>--><base href="."> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+    <link rel="shortcut icon" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/favicon.ico?v=0.13.0.109827">
+    <link rel="stylesheet" href="./App-WS_TRACFONEACTIVATION-settings( _ eHopper BO_files/bootstrap.css">
+    <link rel="stylesheet" href="./App-WS_TRACFONEACTIVATION-settings( _ eHopper BO_files/bootstrap-NsBo-theme.css">
+    <link rel="stylesheet" href="./App-WS_TRACFONEACTIVATION-settings( _ eHopper BO_files/font-awesome.css">
+    <link rel="stylesheet" href="./App-WS_TRACFONEACTIVATION-settings( _ eHopper BO_files/durandal.css">
+    <link rel="stylesheet" href="./App-WS_TRACFONEACTIVATION-settings( _ eHopper BO_files/morris.css">
+    <link rel="stylesheet" href="./App-WS_TRACFONEACTIVATION-settings( _ eHopper BO_files/jquery.dataTables.css">
+    <link rel="stylesheet" href="./App-WS_TRACFONEACTIVATION-settings( _ eHopper BO_files/jquery.datetimepicker.css">
+    <link rel="stylesheet" href="./App-WS_TRACFONEACTIVATION-settings( _ eHopper BO_files/daterangepicker.css">
+    <link rel="stylesheet" href="./App-WS_TRACFONEACTIVATION-settings( _ eHopper BO_files/bootstrap.colorpickersliders.css">
+    <link rel="stylesheet" href="./App-WS_TRACFONEACTIVATION-settings( _ eHopper BO_files/jquery.fileupload.css">
+    <link rel="stylesheet" href="./App-WS_TRACFONEACTIVATION-settings( _ eHopper BO_files/slim.min.css">
+    <link rel="stylesheet" href="./App-WS_TRACFONEACTIVATION-settings( _ eHopper BO_files/jquery.tag-editor.css">
+    <link rel="stylesheet" href="./App-WS_TRACFONEACTIVATION-settings( _ eHopper BO_files/app.css">
+
+    <style>
+        html {
+            display: none;
+        }
+    </style>
+    <script>
+        if (self == top) {
+            document.documentElement.style.display = 'block';
+        } else {
+            top.location = self.location;
+        }
+    </script>
+
+    <script src="./App-WS_TRACFONEACTIVATION-settings( _ eHopper BO_files/tinycolor-min.js"></script>
+
+
+
+    <script type="text/javascript">
+        userAuthenticated = 'False';
+        var App = {};
+        App.employeeId = '';
+        App.lang = '';
+        App.enterpriseLang = 'en';
+        App.defaultLang = 'en';
+        App.enterpriseCode = '8542';
+        App.title = 'eHopper BO';
+        App.signInUrl = 'https://ehopper.com/pricing/';
+
+
+        App.productVersion = '0.13.0.109827';
+
+        App.requestVerificationToken = 'dx_PLAeaQQUpnEY6t52xf6qWx8OjOOvOvic3cCmVrZnPfuAbxcYX2CtezTdH6Va6t2JB8Fr1DEPlYpbfS_diKe3U4xo1:7gk45UXnB7dT6qiFAnYefWhT3OmaRPaXD1r1Pc7Vq613UKn5EG3n5US42Vmgr3bXnRc8t8UBPFk48hCE7BwW8HA1jn81';
+    </script>
+</head>
+<body>
+
+        <script src="./App-WS_TRACFONEACTIVATION-settings( _ eHopper BO_files/require.js" data-main="/app/main-built"></script>
+    
+    <div id="applicationHost"><div class="main-container" data-view="views/shell" data-active-view="true">
+    <div data-bind="visible: isLoading" class="loader-container" style="display: none;"></div>
+    <!-- ko if: authorized -->
+    <div data-bind="compose:&#39;viewmodels/navigationpanel&#39;"><div class="navigation-panel" data-view="views/navigationpanel" data-active-view="true" style="display: block;">
+
+    <div class="pane pane-left">
+        <div class="pane-header">
+            <p class="logo" data-bind="click: close">
+                <span class="fa fa-chevron-left"></span>
+                <span class="enterprise-name" data-bind="text: title, attr: { title: title }" title="Retail Store">Retail Store</span>
+            </p>
+        </div>
+
+        <div class="pane-body-wrapper">
+            <div class="pane-body">
+                <!-- ko if: isDemo --><!-- /ko -->
+                <ul class="main-menu" data-bind="foreach: router.navigationModel">
+                    <!-- ko if: $data.parent === undefined  -->
+                    <li data-bind="visible: nav, css: { hasSubitems: $data.childRoutes !== undefined &amp;&amp; !$data.noSubItems }, permission: $data.permission" class="">
+                        <a data-bind="attr: { href: $data.link || hash, target: $data.link &amp;&amp; &#39;_blank&#39; }, text: $root.itemLabel($data), css: iconClass, click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#" class="dashboard-icon">Dashboard</a>
+                        <!-- ko if: $data.childRoutes !== undefined  --><!-- /ko -->
+                    </li>
+                    <!-- /ko -->
+                
+                    <!-- ko if: $data.parent === undefined  -->
+                    <li data-bind="visible: nav, css: { hasSubitems: $data.childRoutes !== undefined &amp;&amp; !$data.noSubItems }, permission: $data.permission" class="">
+                        <a data-bind="attr: { href: $data.link || hash, target: $data.link &amp;&amp; &#39;_blank&#39; }, text: $root.itemLabel($data), css: iconClass, click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#orders" class="transactions-icon">Orders</a>
+                        <!-- ko if: $data.childRoutes !== undefined  -->
+                        <ul data-bind="foreach: $data.childRoutes.routes">
+                            <li data-bind="visible: nav, permission: $data.permission" style="display: none;">
+                                <a data-bind="attr: { href: hash }, text: $root.itemLabel($data), click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#order-details/:id">Order Details</a>
+                            </li>
+                        </ul>
+                        <!-- /ko -->
+                    </li>
+                    <!-- /ko -->
+                
+                    <!-- ko if: $data.parent === undefined  -->
+                    <li data-bind="visible: nav, css: { hasSubitems: $data.childRoutes !== undefined &amp;&amp; !$data.noSubItems }, permission: $data.permission" class="hasSubitems">
+                        <a data-bind="attr: { href: $data.link || hash, target: $data.link &amp;&amp; &#39;_blank&#39; }, text: $root.itemLabel($data), css: iconClass, click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#" class="inventory-icon">Inventory</a>
+                        <!-- ko if: $data.childRoutes !== undefined  -->
+                        <ul data-bind="foreach: $data.childRoutes.routes">
+                            <li data-bind="visible: nav, permission: $data.permission">
+                                <a data-bind="attr: { href: hash }, text: $root.itemLabel($data), click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#items">Products</a>
+                            </li>
+                        
+                            <li data-bind="visible: nav, permission: $data.permission">
+                                <a data-bind="attr: { href: hash }, text: $root.itemLabel($data), click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#departments">Departments</a>
+                            </li>
+                        
+                            <li data-bind="visible: nav, permission: $data.permission">
+                                <a data-bind="attr: { href: hash }, text: $root.itemLabel($data), click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#categories">Categories</a>
+                            </li>
+                        
+                            <li data-bind="visible: nav, permission: $data.permission">
+                                <a data-bind="attr: { href: hash }, text: $root.itemLabel($data), click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#modifiers">Global Modifiers</a>
+                            </li>
+                        
+                            <li data-bind="visible: nav, permission: $data.permission" style="display: none;">
+                                <a data-bind="attr: { href: hash }, text: $root.itemLabel($data), click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#store-transfer">Store Transfer</a>
+                            </li>
+                        
+                            <li data-bind="visible: nav, permission: $data.permission" style="display: none;">
+                                <a data-bind="attr: { href: hash }, text: $root.itemLabel($data), click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#po-receiving">PO Receiving</a>
+                            </li>
+                        
+                            <li data-bind="visible: nav, permission: $data.permission" style="display: none;">
+                                <a data-bind="attr: { href: hash }, text: $root.itemLabel($data), click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#adjustment">Inventory Adjustment</a>
+                            </li>
+                        
+                            <li data-bind="visible: nav, permission: $data.permission">
+                                <a data-bind="attr: { href: hash }, text: $root.itemLabel($data), click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#menuBuilder">Menu Builder</a>
+                            </li>
+                        </ul>
+                        <!-- /ko -->
+                    </li>
+                    <!-- /ko -->
+                
+                    <!-- ko if: $data.parent === undefined  --><!-- /ko -->
+                
+                    <!-- ko if: $data.parent === undefined  --><!-- /ko -->
+                
+                    <!-- ko if: $data.parent === undefined  --><!-- /ko -->
+                
+                    <!-- ko if: $data.parent === undefined  --><!-- /ko -->
+                
+                    <!-- ko if: $data.parent === undefined  -->
+                    <li data-bind="visible: nav, css: { hasSubitems: $data.childRoutes !== undefined &amp;&amp; !$data.noSubItems }, permission: $data.permission" class="hasSubitems">
+                        <a data-bind="attr: { href: $data.link || hash, target: $data.link &amp;&amp; &#39;_blank&#39; }, text: $root.itemLabel($data), css: iconClass, click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#" class="customers-icon">Customers</a>
+                        <!-- ko if: $data.childRoutes !== undefined  -->
+                        <ul data-bind="foreach: $data.childRoutes.routes">
+                            <li data-bind="visible: nav, permission: $data.permission">
+                                <a data-bind="attr: { href: hash }, text: $root.itemLabel($data), click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#importCustomers">Import Customers</a>
+                            </li>
+                        </ul>
+                        <!-- /ko -->
+                    </li>
+                    <!-- /ko -->
+                
+                    <!-- ko if: $data.parent === undefined  --><!-- /ko -->
+                
+                    <!-- ko if: $data.parent === undefined  -->
+                    <li data-bind="visible: nav, css: { hasSubitems: $data.childRoutes !== undefined &amp;&amp; !$data.noSubItems }, permission: $data.permission" class="hasSubitems">
+                        <a data-bind="attr: { href: $data.link || hash, target: $data.link &amp;&amp; &#39;_blank&#39; }, text: $root.itemLabel($data), css: iconClass, click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#" class="vendors-icon">Vendors</a>
+                        <!-- ko if: $data.childRoutes !== undefined  -->
+                        <ul data-bind="foreach: $data.childRoutes.routes">
+                            <li data-bind="visible: nav, permission: $data.permission">
+                                <a data-bind="attr: { href: hash }, text: $root.itemLabel($data), click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#vendorsList">Vendor List</a>
+                            </li>
+                        </ul>
+                        <!-- /ko -->
+                    </li>
+                    <!-- /ko -->
+                
+                    <!-- ko if: $data.parent === undefined  --><!-- /ko -->
+                
+                    <!-- ko if: $data.parent === undefined  -->
+                    <li data-bind="visible: nav, css: { hasSubitems: $data.childRoutes !== undefined &amp;&amp; !$data.noSubItems }, permission: $data.permission" class="hasSubitems open">
+                        <a data-bind="attr: { href: $data.link || hash, target: $data.link &amp;&amp; &#39;_blank&#39; }, text: $root.itemLabel($data), css: iconClass, click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#" class="employees-icon">Employees</a>
+                        <!-- ko if: $data.childRoutes !== undefined  -->
+                        <ul data-bind="foreach: $data.childRoutes.routes">
+                            <li data-bind="visible: nav, permission: $data.permission">
+                                <a data-bind="attr: { href: hash }, text: $root.itemLabel($data), click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#employees" class="">Employee List</a>
+                            </li>
+                        
+                            <li data-bind="visible: nav, permission: $data.permission">
+                                <a data-bind="attr: { href: hash }, text: $root.itemLabel($data), click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#clockIn">Time Clock</a>
+                            </li>
+                        </ul>
+                        <!-- /ko -->
+                    </li>
+                    <!-- /ko -->
+                
+                    <!-- ko if: $data.parent === undefined  --><!-- /ko -->
+                
+                    <!-- ko if: $data.parent === undefined  -->
+                    <li data-bind="visible: nav, css: { hasSubitems: $data.childRoutes !== undefined &amp;&amp; !$data.noSubItems }, permission: $data.permission" class="hasSubitems">
+                        <a data-bind="attr: { href: $data.link || hash, target: $data.link &amp;&amp; &#39;_blank&#39; }, text: $root.itemLabel($data), css: iconClass, click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#" class="reports-icon">Reporting</a>
+                        <!-- ko if: $data.childRoutes !== undefined  -->
+                        <ul data-bind="foreach: $data.childRoutes.routes">
+                            <li data-bind="visible: nav, permission: $data.permission">
+                                <a data-bind="attr: { href: hash }, text: $root.itemLabel($data), click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#tips-report">Tips Report</a>
+                            </li>
+                        
+                            <li data-bind="visible: nav, permission: $data.permission">
+                                <a data-bind="attr: { href: hash }, text: $root.itemLabel($data), click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#shifts">Z Report</a>
+                            </li>
+                        
+                            <li data-bind="visible: nav, permission: $data.permission">
+                                <a data-bind="attr: { href: hash }, text: $root.itemLabel($data), click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#product-mix-report">Product Mix Report</a>
+                            </li>
+                        
+                            <li data-bind="visible: nav, permission: $data.permission">
+                                <a data-bind="attr: { href: hash }, text: $root.itemLabel($data), click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#tax-report">Tax Report</a>
+                            </li>
+                        
+                            <li data-bind="visible: nav, permission: $data.permission">
+                                <a data-bind="attr: { href: hash }, text: $root.itemLabel($data), click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#transactions-report">Transactions Report</a>
+                            </li>
+                        
+                            <li data-bind="visible: nav, permission: $data.permission">
+                                <a data-bind="attr: { href: hash }, text: $root.itemLabel($data), click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#aging-report">Inventory Aging</a>
+                            </li>
+                        
+                            <li data-bind="visible: nav, permission: $data.permission">
+                                <a data-bind="attr: { href: hash }, text: $root.itemLabel($data), click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#serial-item-tracking">Serial Item Tracking Report</a>
+                            </li>
+                        
+                            <li data-bind="visible: nav, permission: $data.permission" style="display: none;">
+                                <a data-bind="attr: { href: hash }, text: $root.itemLabel($data), click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#store-transfers-report">Store Transfers Report</a>
+                            </li>
+                        
+                            <li data-bind="visible: nav, permission: $data.permission" style="display: none;">
+                                <a data-bind="attr: { href: hash }, text: $root.itemLabel($data), click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#po-receiving-report">PO Receiving Report</a>
+                            </li>
+                        
+                            <li data-bind="visible: nav, permission: $data.permission">
+                                <a data-bind="attr: { href: hash }, text: $root.itemLabel($data), click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#adjustment-report">Adjustment Report</a>
+                            </li>
+                        </ul>
+                        <!-- /ko -->
+                    </li>
+                    <!-- /ko -->
+                
+                    <!-- ko if: $data.parent === undefined  --><!-- /ko -->
+                
+                    <!-- ko if: $data.parent === undefined  --><!-- /ko -->
+                
+                    <!-- ko if: $data.parent === undefined  --><!-- /ko -->
+                
+                    <!-- ko if: $data.parent === undefined  --><!-- /ko -->
+                
+                    <!-- ko if: $data.parent === undefined  --><!-- /ko -->
+                
+                    <!-- ko if: $data.parent === undefined  --><!-- /ko -->
+                
+                    <!-- ko if: $data.parent === undefined  --><!-- /ko -->
+                
+                    <!-- ko if: $data.parent === undefined  -->
+                    <li data-bind="visible: nav, css: { hasSubitems: $data.childRoutes !== undefined &amp;&amp; !$data.noSubItems }, permission: $data.permission" class="hasSubitems open">
+                        <a data-bind="attr: { href: $data.link || hash, target: $data.link &amp;&amp; &#39;_blank&#39; }, text: $root.itemLabel($data), css: iconClass, click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#" class="app-store-icon">Apps</a>
+                        <!-- ko if: $data.childRoutes !== undefined  -->
+                        <ul data-bind="foreach: $data.childRoutes.routes">
+                            <li data-bind="visible: nav, permission: $data.permission">
+                                <a data-bind="attr: { href: hash }, text: $root.itemLabel($data), click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#app-directory">App Directory</a>
+                            </li>
+                        
+                            <li data-bind="visible: nav, permission: $data.permission">
+                                <a data-bind="attr: { href: hash }, text: $root.itemLabel($data), click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#appdepartments/:isAppMode" class="">App Departments</a>
+                            </li>
+                        
+                            <li data-bind="visible: nav, permission: $data.permission">
+                                <a data-bind="attr: { href: hash }, text: $root.itemLabel($data), click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#appcategories/:isAppMode" class="">App Categories</a>
+                            </li>
+                        
+                            <li data-bind="visible: nav, permission: $data.permission" style="display: none;">
+                                <a data-bind="attr: { href: hash }, text: $root.itemLabel($data), click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#quickbooks">QuickBooks Online</a>
+                            </li>
+                        
+                            <li data-bind="visible: nav, permission: $data.permission">
+                                <a data-bind="attr: { href: hash }, text: $root.itemLabel($data), click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#app-WS_TRACFONEACTIVATION-settings/ad1ebc20-ff01-4490-85ee-033806a174e6" class="active">TracFone Phone Activation</a>
+                            </li>
+                        
+                            <li data-bind="visible: nav, permission: $data.permission" style="display: none;">
+                                <a data-bind="attr: { href: hash }, text: $root.itemLabel($data), click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#app-WS_METROPORT-settings/88853e58-ea88-47fa-8b18-332b46aed520">MetroPCS Port Eligibility</a>
+                            </li>
+                        
+                            <li data-bind="visible: nav, permission: $data.permission" style="display: none;">
+                                <a data-bind="attr: { href: hash }, text: $root.itemLabel($data), click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#app-WS_METROEDGE-settings/2317afe8-e641-4596-8441-40ea7fc8d159">MetroPCS EDGE</a>
+                            </li>
+                        
+                            <li data-bind="visible: nav, permission: $data.permission" style="display: none;">
+                                <a data-bind="attr: { href: hash }, text: $root.itemLabel($data), click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#app-WS_PROGRESSIVE-settings/b992ed68-a04c-46fa-8bac-78cd269bdbfb">Progressive Financing</a>
+                            </li>
+                        
+                            <li data-bind="visible: nav, permission: $data.permission">
+                                <a data-bind="attr: { href: hash }, text: $root.itemLabel($data), click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#app-WS_INCOMMTRACFONE-settings/fcfba66e-50f9-4a3a-a5b3-94310486de09" class="">Incomm Airtime/Redemption</a>
+                            </li>
+                        
+                            <li data-bind="visible: nav, permission: $data.permission">
+                                <a data-bind="attr: { href: hash }, text: $root.itemLabel($data), click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#app-WS_SMARTPAY-settings/e56de1c2-37d0-4989-ae6b-c5499cceb101" class="">Smartpay Leasing</a>
+                            </li>
+                        
+                            <li data-bind="visible: nav, permission: $data.permission" style="display: none;">
+                                <a data-bind="attr: { href: hash }, text: $root.itemLabel($data), click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#app-WS_INCOMM-settings/973457e6-a998-4fa5-b9fb-c5bda52eb538">Incomm 5.0 payment</a>
+                            </li>
+                        
+                            <li data-bind="visible: nav, permission: $data.permission" style="display: none;">
+                                <a data-bind="attr: { href: hash }, text: $root.itemLabel($data), click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#app-WS_METROACTIVATION-settings/f830f109-45ba-47ef-b37d-dda323abf499">MetroPCS Phone Activation</a>
+                            </li>
+                        </ul>
+                        <!-- /ko -->
+                    </li>
+                    <!-- /ko -->
+                
+                    <!-- ko if: $data.parent === undefined  --><!-- /ko -->
+                
+                    <!-- ko if: $data.parent === undefined  --><!-- /ko -->
+                
+                    <!-- ko if: $data.parent === undefined  --><!-- /ko -->
+                
+                    <!-- ko if: $data.parent === undefined  --><!-- /ko -->
+                
+                    <!-- ko if: $data.parent === undefined  --><!-- /ko -->
+                
+                    <!-- ko if: $data.parent === undefined  --><!-- /ko -->
+                
+                    <!-- ko if: $data.parent === undefined  -->
+                    <li data-bind="visible: nav, css: { hasSubitems: $data.childRoutes !== undefined &amp;&amp; !$data.noSubItems }, permission: $data.permission" class="hasSubitems open">
+                        <a data-bind="attr: { href: $data.link || hash, target: $data.link &amp;&amp; &#39;_blank&#39; }, text: $root.itemLabel($data), css: iconClass, click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#" class="manage-app-icon">Settings</a>
+                        <!-- ko if: $data.childRoutes !== undefined  -->
+                        <ul data-bind="foreach: $data.childRoutes.routes">
+                            <li data-bind="visible: nav, permission: $data.permission">
+                                <a data-bind="attr: { href: hash }, text: $root.itemLabel($data), click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#enterpriseSettings" class="">Company Settings</a>
+                            </li>
+                        
+                            <li data-bind="visible: nav, permission: $data.permission">
+                                <a data-bind="attr: { href: hash }, text: $root.itemLabel($data), click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#stores" class="">Store Settings</a>
+                            </li>
+                        
+                            <li data-bind="visible: nav, permission: $data.permission">
+                                <a data-bind="attr: { href: hash }, text: $root.itemLabel($data), click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#registerSettings" class="">Register Settings</a>
+                            </li>
+                        
+                            <li data-bind="visible: nav, permission: $data.permission">
+                                <a data-bind="attr: { href: hash }, text: $root.itemLabel($data), click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#taxes">Tax Manager</a>
+                            </li>
+                        
+                            <li data-bind="visible: nav, permission: $data.permission">
+                                <a data-bind="attr: { href: hash }, text: $root.itemLabel($data), click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#tax-agencies" class="">Tax Agencies</a>
+                            </li>
+                        
+                            <li data-bind="visible: nav, permission: $data.permission" style="display: none;">
+                                <a data-bind="attr: { href: hash }, text: $root.itemLabel($data), click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#">Tender Settings</a>
+                            </li>
+                        
+                            <li data-bind="visible: nav, permission: $data.permission">
+                                <a data-bind="attr: { href: hash }, text: $root.itemLabel($data), click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#support-access">eHopper Support Access</a>
+                            </li>
+                        </ul>
+                        <!-- /ko -->
+                    </li>
+                    <!-- /ko -->
+                
+                    <!-- ko if: $data.parent === undefined  --><!-- /ko -->
+                
+                    <!-- ko if: $data.parent === undefined  --><!-- /ko -->
+                
+                    <!-- ko if: $data.parent === undefined  --><!-- /ko -->
+                
+                    <!-- ko if: $data.parent === undefined  --><!-- /ko -->
+                
+                    <!-- ko if: $data.parent === undefined  --><!-- /ko -->
+                
+                    <!-- ko if: $data.parent === undefined  --><!-- /ko -->
+                
+                    <!-- ko if: $data.parent === undefined  -->
+                    <li data-bind="visible: nav, css: { hasSubitems: $data.childRoutes !== undefined &amp;&amp; !$data.noSubItems }, permission: $data.permission" class="">
+                        <a data-bind="attr: { href: $data.link || hash, target: $data.link &amp;&amp; &#39;_blank&#39; }, text: $root.itemLabel($data), css: iconClass, click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/Zendesk/Login" target="_blank" class="customers-icon">Community</a>
+                        <!-- ko if: $data.childRoutes !== undefined  --><!-- /ko -->
+                    </li>
+                    <!-- /ko -->
+                
+                    <!-- ko if: $data.parent === undefined  --><!-- /ko -->
+                
+                    <!-- ko if: $data.parent === undefined  --><!-- /ko -->
+                
+                    <!-- ko if: $data.parent === undefined  --><!-- /ko -->
+                
+                    <!-- ko if: $data.parent === undefined  --><!-- /ko -->
+                
+                    <!-- ko if: $data.parent === undefined  --><!-- /ko -->
+                
+                    <!-- ko if: $data.parent === undefined  --><!-- /ko -->
+                
+                    <!-- ko if: $data.parent === undefined  --><!-- /ko -->
+                
+                    <!-- ko if: $data.parent === undefined  --><!-- /ko -->
+                
+                    <!-- ko if: $data.parent === undefined  --><!-- /ko -->
+                
+                    <!-- ko if: $data.parent === undefined  -->
+                    <li data-bind="visible: nav, css: { hasSubitems: $data.childRoutes !== undefined &amp;&amp; !$data.noSubItems }, permission: $data.permission" class="">
+                        <a data-bind="attr: { href: $data.link || hash, target: $data.link &amp;&amp; &#39;_blank&#39; }, text: $root.itemLabel($data), css: iconClass, click: $root.selectMenu" href="http://kv-wsweb-qa.qa.b2bsoft.com:8090/#logout" class="logout-icon">Logout</a>
+                        <!-- ko if: $data.childRoutes !== undefined  --><!-- /ko -->
+                    </li>
+                    <!-- /ko -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div></div>
+    <!-- /ko -->
+    <section id="content" data-bind="router: { cacheViews: isCachable() }" class="show-content"><div class="pane pane-right" data-view="views/appstore/appSettings" data-active-view="true">
+
+    <!--ko compose: { model: 'viewmodels/header' }--><div class="pane-header" data-view="views/header" data-active-view="true">
+    <div class="toggle-options-panel-button" data-bind="click: clickButton">&nbsp;</div>
+    <b><span data-part="navPath" data-bind="text: navigationPath">TracFone Phone Activation</span></b>
+</div><!--/ko-->
+
+    <div class="pane-body-wrapper">
+        <div id="app-settings" class="app-settings" data-bind="with: model">
+            <iframe data-bind="attr: { src: settingsUrl }" style="width: 100%; height: 100%;" frameborder="0" onload="$(&#39;#spinnerIframe&#39;).hide();" src="./App-WS_TRACFONEACTIVATION-settings( _ eHopper BO_files/settings.html"></iframe>
+        </div>
+    </div>
+</div></section>
+</div></div>
+    <script>
+        if (userAuthenticated === 'True') {
+            require(['services/jivoChat'], function (jivoChat) {
+                jivoChat.init();
+            });
+        }
+    </script>
+
+
+<div class="daterangepicker dropdown-menu opensleft"><div class="calendar left"><div class="daterangepicker_input"><input class="input-mini" type="text" name="daterangepicker_start" value=""><i class="fa fa-calendar glyphicon glyphicon-calendar"></i><div class="calendar-time" style="display: none;"><div></div><i class="fa fa-clock-o glyphicon glyphicon-time"></i></div></div><div class="calendar-table"></div></div><div class="calendar right"><div class="daterangepicker_input"><input class="input-mini" type="text" name="daterangepicker_end" value=""><i class="fa fa-calendar glyphicon glyphicon-calendar"></i><div class="calendar-time" style="display: none;"><div></div><i class="fa fa-clock-o glyphicon glyphicon-time"></i></div></div><div class="calendar-table"></div></div><div class="ranges"><ul><li>Today</li><li>Yesterday</li><li>Last 7 Days</li><li>Last 30 Days</li><li>This Month</li><li>Year-to-Date</li><li>All</li><li>Custom Range</li></ul><div class="range_inputs"><button class="applyBtn btn btn-sm btn-success" disabled="disabled" type="button">Apply</button> <button class="cancelBtn btn btn-sm btn-default" type="button">Cancel</button></div></div></div></body></html>

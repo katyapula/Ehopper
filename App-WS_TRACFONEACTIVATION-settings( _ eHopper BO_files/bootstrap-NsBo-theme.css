@@ -1,0 +1,165 @@
+.btn-default {
+    background-color: #bdc1cb;
+    border-color: #bdc1cb;
+    color: #fff;
+}
+
+.btn-default:hover {
+    background-color: #9096a5;
+    border-color: #9096a5;
+    color: #fff;
+}
+
+.btn-primary {
+  background-color: #2E9ADB;
+  border-color: #2E9ADB;
+}
+
+.btn-primary:hover {
+  background-color: #1B79B2;
+  border-color: #1B79B2;
+}
+
+.btn-blue {
+  background-color: #2E9ADB;
+  border-color: #2E9ADB;
+  color:#FFFFFF;
+}
+
+.btn-blue:hover {
+   border-color: #2E9ADB ;
+   background-color: #2A98DA;   
+}
+
+.btn-red {
+    border-color: #e24e34 ;
+    background-color: #fbeeec;
+    color: #e24e34;
+}
+
+.btn-red:hover {
+  background-color: #e24e34;
+  border-color: #e24e34;
+}
+
+.dropdown-menu {
+    box-shadow: none;
+}
+
+.btn-group > .dropdown-menu {
+    left: 0;
+    margin-top: 0;
+    right: 0;
+}
+
+.dropdown-menu > li > a {
+    color: #2E9ADB;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.btn-lg, .btn-group-lg > .btn, .input-lg {
+    border-radius: 3px;
+    font-size: 1.15em;
+}
+
+.filter-text {
+    padding: 0 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
+    border: none !important;
+    background: none !important;
+}
+
+.btn-lg, .btn-group-lg > .btn {
+    min-width: 140px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+.input-lg {
+    padding-bottom: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 15px;
+}
+
+input[type="password"].input-lg,
+input[type="text"].input-lg,
+input[type="email"].input-lg,
+input[type="tel"].input-lg {
+    height: 53px;
+}
+
+input[type="number"].input-lg {
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.btn-group.btn-group-lg > a:nth-child(1) {
+    min-width: 180px;
+}
+
+.caret {
+    border: none;
+    height: auto;
+    width: auto;
+}
+
+.caret:before {
+    content: "\f078";
+    font-family: FontAwesome;
+}
+
+.btn-group.open > .dropdown-toggle > .caret:before {
+    content: "\f077";
+}
+
+.btn-group-lg > .dropdown-toggle {
+    min-width: 0;
+    padding-bottom: 5px;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 5px;
+}
+
+.btn-group-lg > .dropdown-toggle > .caret {
+    border-left: solid 1px #fff;
+    padding: 10px 10px 10px 10px;
+}
+
+.checkbox,
+.radio,
+.checkbox label,
+.radio label {
+    padding-left: 0;
+    white-space: nowrap;
+}
+
+.form-control:focus {
+    box-shadow: none;
+}
+
+label {
+    font-weight: normal;
+}
+
+.form-group > label:after {
+    content: ':';
+}
+
+.form-horizontal .control-label {
+    padding-top: 16px;
+}
+
+select.input-lg {
+  line-height: 1.33;
+  width: 100%;
+  height: 52px;
+}
+
+dd {
+    margin-left: 5%;
+    margin-bottom: 1ex;
+}

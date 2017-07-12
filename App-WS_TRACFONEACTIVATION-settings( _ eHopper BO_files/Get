@@ -1,0 +1,43 @@
+define(['text!lang/en.html'],  function () { 
+            
+            var dictionary ;
+            var langs = Array.prototype.slice.call(arguments);
+    function init() {
+        var d = new $.Deferred();
+        if (dictionary) {
+            d.resolve();
+            return d.promise();
+        }
+
+        dictionary = {};
+
+        if (langs) {
+            langs.forEach(function (langText) {
+                var lang = JSON.parse(langText);
+                dictionary[lang.meta.code] = lang;
+            });
+        }
+        d.resolve();
+        return d.promise();
+    }
+
+            function get(lang){
+                return dictionary[lang];
+            }
+
+            function getLangs() {
+                var result = {};
+                for (var langId in dictionary) {
+                    result[langId.toUpperCase()] =
+                        dictionary[langId].meta.language;
+                }
+                return result;
+            }
+
+            return {
+                init: init,
+                get: get,
+                getLangs: getLangs
+            } ;
+
+    });
