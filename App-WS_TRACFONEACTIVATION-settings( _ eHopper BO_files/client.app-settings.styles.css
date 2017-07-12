@@ -6988,8 +6988,30 @@ select:disabled {
     background-color: #2E9ADB;
 }
 
+/* WSW-599 
+    additional section titles
+    sticky footer
+*/
 
+.settings-subtitle {
+  margin: 0 0 15px 0;
+  font-size: 18px;
+  font-weight: bold;
+}
 
+.table-wrapper_sticky-footer {
+  padding-bottom: 53px;
+}
+
+.sticky-footer {
+  position: fixed;
+  left: 0;
+  z-index: 10;
+  bottom: 0;
+  width: 100%;
+  padding: 20px 40px;
+  background: white;
+}
 
 
 
