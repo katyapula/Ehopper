@@ -811,6 +811,10 @@ header + .container__body {
     content: "\e8e0";
 }
 
+.icon-bookmarks:before {
+  content: "\e9d3";
+}
+
 .btn {
     display: inline-block;
     vertical-align: top;

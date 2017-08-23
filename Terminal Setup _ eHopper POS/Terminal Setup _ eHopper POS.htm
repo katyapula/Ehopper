@@ -127,10 +127,6 @@
                     <div class="loader" data-bind="visible: loading" style="display: none;">
                         <div class="loading loader__icon"></div>
                     </div>
-                    <div class="explanation settings__explanation">
-                        <i class="icon icon-cc explanation__icon"></i>
-                        <div class="explanation__text" data-bind="html: ko.local(&#39;terminalSetup.explanation&#39;)"><p>To process credit/debit cards, set up at least one terminal in 'Settings'.</p></div>
-                    </div>
                     <div class="settings__content">
                         <div class="simple-field">
                             <div class="simple-field__error simple-field__error_reset" data-bind="text: message"></div>
@@ -142,24 +138,32 @@
                             <div class="table-wrapper__header" data-table-fake="terminal">
                                 <div class="table-header">
                                     <ul class="table-header__tr">
-                                        <li class="table-header__th" data-column="icon">&nbsp;</li>
-                                        <li class="table-header__th" data-column="name" data-bind="local: &#39;terminalSetup.name&#39;">Name</li>
-                                        <li class="table-header__th" data-column="serial-number" data-bind="local: &#39;terminalSetup.serialNumber&#39;">Serial Number</li>
-                                        <li class="table-header__th" data-column="ip-address" data-bind="local: &#39;terminalSetup.ipAddress&#39;">IP Address</li>
-                                        <li class="table-header__th" data-column="information" data-bind="local: &#39;terminalSetup.info&#39;">Information</li>
-                                        <li class="table-header__th" data-column="accept" data-bind="visible: $root.showAcceptCertificateLink">&nbsp;</li>
+                                        <li class="table-header__th" data-column="name">Name</li>
+                                        <li class="table-header__th" data-column="issued-by">Issued by</li>
+                                        <li class="table-header__th" data-column="valid-from">Valid from</li>
+                                        <li class="table-header__th" data-column="valid-till">Valid till</li>
                                         <li class="table-header__th" data-column="icon">&nbsp;</li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="table-wrapper__body" data-scrollbar="default" data-table-scrollable="terminal">
-                                <div class="table-body table-wrapper__table" data-bind="foreach: terminalList"></div>
+                                <div class="table-body table-wrapper__table" data-bind="foreach: terminalList">
+                                    <div class="table-body__tr">
+                                        <div class="table-body__td" data-column="name">Qpay-60764-4089</div>
+                                        <div class="table-body__td" data-column="issued-by">Qpay Inc</div>
+                                        <div class="table-body__td" data-column="valid-from">05/08/2017</div>
+                                        <div class="table-body__td" data-column="valid-till">02/08/2018</div>
+                                        <div class="table-body__td" data-column="icon">
+                                            <button class="btn btn_icon"><i class="icon icon-close"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="table-wrapper__footer">
                                 <div class="table-footer">
                                     <button class="btn btn_success" data-animation="ripple" data-bind="smartClick: openModal">
                                         <i class="icon icon-plus"></i>
-                                        <span class="prm" data-bind="local: &#39;terminalSetup.addTerminal&#39;">Add terminal</span>
+                                        <span class="prm" data-bind="local: &#39;terminalSetup.addTerminal&#39;">Install New Certificate</span>
                                     </button>
                                 </div>
                             </div>
@@ -1187,7 +1191,7 @@
 
         <div class="main-header__container main-header__container_full" data-bind="visible: $data.__moduleId__ !== &#39;viewmodels/cart&#39; &amp;&amp; $data.__moduleId__ !== &#39;viewmodels/login&#39;,
                         css: { &#39;main-header_simple-search&#39;: $data.__moduleId__ === &#39;viewmodels/transactions&#39; || $data.__moduleId__ === &#39;viewmodels/ordersTips&#39;  }">
-            <h2 class="title-xlg main-header__title" data-bind="local: $root.title()">Terminal Setup</h2>
+            <h2 class="title-xlg main-header__title" data-bind="local: $root.title()">Certificates</h2>
 
             <div class="main-header__searchbox main-header__searchbox_right" data-bind="visible: $data.__moduleId__ === &#39;viewmodels/transactions&#39;" style="display: none;">
                 <div class="search" data-modal="search">
@@ -1317,7 +1321,7 @@
                 <!-- /ko -->
             
                 <!-- ko if: $data.parent === $parent.parent() -->
-                <li class="nav__item is-active" data-bind="css: { &#39;is-active&#39;: $parent.activeRoute() === $data }">
+                <li class="nav__item" data-bind="css: { &#39;is-active&#39;: $parent.activeRoute() === $data }">
                     <a class="nav__link" data-bind="smartClick: $parent.selectMenu">
                         <i class="nav__icon icon icon-cc" data-bind="attr: { uur: $data.route }, css: iconClass" uur="terminalSetup"></i>
                         <span data-bind="text: $parent.itemLabel($data)">Terminal Setup</span>
@@ -1339,6 +1343,13 @@
                     </a>
                 </li>
                 <!-- /ko -->
+
+                <li class="nav__item is-active">
+                    <a class="nav__link">
+                        <i class="nav__icon icon icon-bookmarks"></i>
+                        <span data-bind="text: $parent.itemLabel($data)">Certificates</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </nav>
