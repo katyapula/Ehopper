@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<!-- saved from url=(0051)https://demo-ehopper-pos.b2bsoft.com/#terminalSetup -->
-<html manifest="/ns.appcache" dir="ltr" lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- saved from url=(0042)https://demo-ehopper-pos.b2bsoft.com/#cart -->
+<html manifest="/ns.appcache" dir="ltr" lang="en-us" style="overflow-y: hidden;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- domain:demo-ehopper-pos.b2bsoft.com -->
-    <title>Terminal Setup | eHopper POS</title>
+    <title>Shopping Cart | eHopper POS</title>
 
     
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
@@ -11,12 +11,12 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="shortcut icon" href="https://demo-ehopper-pos.b2bsoft.com/favicon.ico">
-    <link rel="stylesheet" href="./Terminal Setup _ eHopper POS_files/font-awesome.min.css">
-    <link rel="stylesheet" href="./Terminal Setup _ eHopper POS_files/durandal.css">
-    <link rel="stylesheet" href="./Terminal Setup _ eHopper POS_files/toastr.min.css">
-    <link rel="stylesheet" href="./Terminal Setup _ eHopper POS_files/jquery-ui.min.css">
-    <link rel="stylesheet" href="./Terminal Setup _ eHopper POS_files/app.css">
-    <link rel="stylesheet" href="./Terminal Setup _ eHopper POS_files/ui-update.css">
+    <link rel="stylesheet" href="./AllFiles/font-awesome.min.css">
+    <link rel="stylesheet" href="./AllFiles/durandal.css">
+    <link rel="stylesheet" href="./AllFiles/toastr.min.css">
+    <link rel="stylesheet" href="./AllFiles/jquery-ui.min.css">
+    <link rel="stylesheet" href="./AllFiles/app.css">
+    <link rel="stylesheet" href="./AllFiles/ui-update.css">
     <script>
         window.loginIssueSettings = {
             failedLoginLimit: 5,
@@ -29,7 +29,7 @@
         window.App.productVersion = '0.13.0.21';
     </script>
 </head>
-<body class="no-touch">
+<body class="no-touch" style="margin-right: 0px;">
     <script type="text/html" id="dropDownListTemplate">
         <div class="dropdown">
             <div class="dropdown__header" data-animation="ripple" data-bind="smartClick: ko.dropDownList.toggle">
@@ -70,7 +70,7 @@
         <main class="main">
             <!-- begin header -->
             <header class="header header_large">
-                <div class="header__logo"> <img src="./Terminal Setup _ eHopper POS_files/logo-white.svg" alt="eHopper"> </div>
+                <div class="header__logo"> <img src="./AllFiles/logo-white.svg" alt="eHopper"> </div>
             </header>
             <!-- end header -->
             <div class="content text-center">
@@ -86,240 +86,515 @@
     </div>
     <!-- end application -->
 </div></div>
-    <section id="content" data-bind="router: { cacheViews: true }, css: languageClass()" class="lang-en"><div class="applica" data-view="views/deactivateDevice" style="display: none;">
+    <section id="content" data-bind="router: { cacheViews: true }, css: languageClass()" class="lang-en"><div class="applica" data-view="views/transactions" style="display: none;">
     <!-- BEGIN content -->
     <main class="main">
-        <div class="inner settings">
-            <div class="settings__container">
-                <div class="settings__body settings__body settings__body_default step-body__section">
-                    <div class="loader" data-bind="visible: $data.loading()" style="display: none;">
-                        <div class="loading loader__icon"></div>
-                    </div>
-                    <div class="form form_sm">
-                        <div class="simple-field">
-                            <div class="title-xlg simple-field__title" data-bind="local: &#39;deactivateDevice.dataWillRemoved&#39;">During deactivation, all local data will be removed from device</div>
-                        </div>
-                        <div class="settings__content">
-                            <div class="error-message" data-bind="text: errorMessage"></div>
-                        </div>
-                        <div class="simple-field">
-                            <div class="input-box simple-field__input">
-                                <input type="text" class="simple-input" id="deactivate-license-key" data-bind="textInput: licenseKey, local: &#39;deactivateDevice.licenseKey&#39;, localAttr: &#39;placeholder&#39;" placeholder="License Key">
-                                <button class="btn-icon btn-icon_gray input-box__clear" data-bind="clearValue: licenseKey">
-                                    <i class="icon icon-close"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="simple-field">
-                            <button type="button" data-keypress="Enter" data-fat="fat-global-done-button" class="btn btn_primary btn_lg btn_block" data-animation="ripple" data-bind="smartClick: deactivateDevice, local: &#39;done&#39;">Done</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-</div><div class="applica" data-view="views/terminalSetup" style="" data-active-view="true">
-    <!-- BEGIN content -->
-    <main class="main">
-        <div class="inner settings">
-            <div class="settings__container">
-                <div class="settings__body">
+        <div class="inner orders">
+            <div class="orders__container">
+                <div class="orders__body">
                     <div class="loader" data-bind="visible: loading" style="display: none;">
                         <div class="loading loader__icon"></div>
                     </div>
-                    <div class="settings__content">
-                        <div class="simple-field">
-                            <div class="simple-field__error simple-field__error_reset" data-bind="text: message"></div>
-                        </div>
-                        <div class="text-center form__section" data-bind="visible: isMessageVisible() &amp;&amp; suggestFindByIp()" style="display: none;">
-                            <a href="https://demo-ehopper-pos.b2bsoft.com/#" data-bind="smartClick: openAddByIpModal, local: &#39;terminalSetup.setupByIP&#39;">Try setup by IP</a>
-                        </div>
-                        <div class="table-wrapper" data-table="terminal">
-                            <div class="table-wrapper__header" data-table-fake="terminal">
-                                <div class="table-header">
-                                    <ul class="table-header__tr">
-                                        <li class="table-header__th" data-column="name">Name</li>
-                                        <li class="table-header__th" data-column="issued-by">Issued by</li>
-                                        <li class="table-header__th" data-column="valid-from">Valid from</li>
-                                        <li class="table-header__th" data-column="valid-till">Valid till</li>
-                                        <li class="table-header__th" data-column="icon">&nbsp;</li>
-                                    </ul>
+                    <div class="toolbar orders__toolbar" data-bind="with: filter">
+                        <div class="toolbar__container">
+                            <div class="toolbar__row">
+                                <!-- ko if: $root.register.multipleRegisters --><!-- /ko -->
+                                <!-- ko if: $root.register.showOrderType --><!-- /ko -->
+                                <div class="toolbar__col">
+                                    <div data-bind="template: { name: &#39;dropDownListTemplate&#39;, data: { options: paymentStatuses, value: paymentStatus, title: ko.lang.getString(&#39;transactions.orderStatusFilter&#39;) } }">
+        <div class="dropdown">
+            <div class="dropdown__header" data-animation="ripple" data-bind="smartClick: ko.dropDownList.toggle">
+                <i class="dropdown__arrow icon icon-expand"></i>
+                <!-- ko if: title && !$data.lookup -->
+                <div class="dropdown__label" data-bind="text: title">Status:</div>
+                <!-- /ko -->
+                <!-- ko if: $data.lookup --><!-- /ko -->
+                <div class="dropdown__value" data-bind="text: ko.dropDownList.selectedName($data),
+                     attr: { disabled: $data.disabled },
+                     visible: !ko.unwrap($data.hidden)">All</div>
+
+            </div>
+
+            <div class="dropdown-menu " data-bind="smartClick: ko.dropDownList.close">
+                <ul class="dropdown-menu__list" data-bind="foreach: options" data-scrollbar="default">
+                    <!-- ko if: $data.lookup --><!-- /ko -->
+                    <li data-bind="text: ko.bindingHandlers.lngProvider.getOption($data), css: { &#39;is-active&#39;: $data.code === $parent.value() }, smartClick: ko.dropDownList.select.bind($parent)" class="dropdown-menu__item is-active" data-animation="ripple">All</li>
+                
+                    <!-- ko if: $data.lookup --><!-- /ko -->
+                    <li data-bind="text: ko.bindingHandlers.lngProvider.getOption($data), css: { &#39;is-active&#39;: $data.code === $parent.value() }, smartClick: ko.dropDownList.select.bind($parent)" class="dropdown-menu__item" data-animation="ripple">Not Paid</li>
+                
+                    <!-- ko if: $data.lookup --><!-- /ko -->
+                    <li data-bind="text: ko.bindingHandlers.lngProvider.getOption($data), css: { &#39;is-active&#39;: $data.code === $parent.value() }, smartClick: ko.dropDownList.select.bind($parent)" class="dropdown-menu__item" data-animation="ripple">Pending Payment</li>
+                
+                    <!-- ko if: $data.lookup --><!-- /ko -->
+                    <li data-bind="text: ko.bindingHandlers.lngProvider.getOption($data), css: { &#39;is-active&#39;: $data.code === $parent.value() }, smartClick: ko.dropDownList.select.bind($parent)" class="dropdown-menu__item" data-animation="ripple">Partially Paid</li>
+                
+                    <!-- ko if: $data.lookup --><!-- /ko -->
+                    <li data-bind="text: ko.bindingHandlers.lngProvider.getOption($data), css: { &#39;is-active&#39;: $data.code === $parent.value() }, smartClick: ko.dropDownList.select.bind($parent)" class="dropdown-menu__item" data-animation="ripple">Paid</li>
+                
+                    <!-- ko if: $data.lookup --><!-- /ko -->
+                    <li data-bind="text: ko.bindingHandlers.lngProvider.getOption($data), css: { &#39;is-active&#39;: $data.code === $parent.value() }, smartClick: ko.dropDownList.select.bind($parent)" class="dropdown-menu__item" data-animation="ripple">Partially Refunded</li>
+                
+                    <!-- ko if: $data.lookup --><!-- /ko -->
+                    <li data-bind="text: ko.bindingHandlers.lngProvider.getOption($data), css: { &#39;is-active&#39;: $data.code === $parent.value() }, smartClick: ko.dropDownList.select.bind($parent)" class="dropdown-menu__item" data-animation="ripple">Refunded</li>
+                
+                    <!-- ko if: $data.lookup --><!-- /ko -->
+                    <li data-bind="text: ko.bindingHandlers.lngProvider.getOption($data), css: { &#39;is-active&#39;: $data.code === $parent.value() }, smartClick: ko.dropDownList.select.bind($parent)" class="dropdown-menu__item" data-animation="ripple">Voided</li>
+                </ul>
+            </div>
+            <button type="button" class="overlay" data-bind="smartClick: ko.dropDownList.close"></button>
+        </div>
+    </div>
                                 </div>
-                            </div>
-                            <div class="table-wrapper__body" data-scrollbar="default" data-table-scrollable="terminal">
-                                <div class="table-body table-wrapper__table" data-bind="foreach: terminalList">
-                                    <div class="table-body__tr">
-                                        <div class="table-body__td" data-column="name">Qpay-60764-4089</div>
-                                        <div class="table-body__td" data-column="issued-by">Qpay Inc</div>
-                                        <div class="table-body__td" data-column="valid-from">05/08/2017</div>
-                                        <div class="table-body__td" data-column="valid-till">02/08/2018</div>
-                                        <div class="table-body__td" data-column="icon">
-                                            <button class="btn btn_icon"><i class="icon icon-close"></i></button>
-                                        </div>
-                                    </div>
+                                <div class="toolbar__col">
+                                    <div data-bind="template: { name: &#39;dropDownListTemplate&#39;, data: { options: fulfillments, value: fulfillment, title: ko.lang.getString(&#39;transactions.orderFulfillmentFilter&#39;) } }">
+        <div class="dropdown">
+            <div class="dropdown__header" data-animation="ripple" data-bind="smartClick: ko.dropDownList.toggle">
+                <i class="dropdown__arrow icon icon-expand"></i>
+                <!-- ko if: title && !$data.lookup -->
+                <div class="dropdown__label" data-bind="text: title">Fulfillment:</div>
+                <!-- /ko -->
+                <!-- ko if: $data.lookup --><!-- /ko -->
+                <div class="dropdown__value" data-bind="text: ko.dropDownList.selectedName($data),
+                     attr: { disabled: $data.disabled },
+                     visible: !ko.unwrap($data.hidden)">All</div>
+
+            </div>
+
+            <div class="dropdown-menu " data-bind="smartClick: ko.dropDownList.close">
+                <ul class="dropdown-menu__list" data-bind="foreach: options" data-scrollbar="default">
+                    <!-- ko if: $data.lookup --><!-- /ko -->
+                    <li data-bind="text: ko.bindingHandlers.lngProvider.getOption($data), css: { &#39;is-active&#39;: $data.code === $parent.value() }, smartClick: ko.dropDownList.select.bind($parent)" class="dropdown-menu__item is-active" data-animation="ripple">All</li>
+                
+                    <!-- ko if: $data.lookup --><!-- /ko -->
+                    <li data-bind="text: ko.bindingHandlers.lngProvider.getOption($data), css: { &#39;is-active&#39;: $data.code === $parent.value() }, smartClick: ko.dropDownList.select.bind($parent)" class="dropdown-menu__item" data-animation="ripple">New</li>
+                
+                    <!-- ko if: $data.lookup --><!-- /ko -->
+                    <li data-bind="text: ko.bindingHandlers.lngProvider.getOption($data), css: { &#39;is-active&#39;: $data.code === $parent.value() }, smartClick: ko.dropDownList.select.bind($parent)" class="dropdown-menu__item" data-animation="ripple">In Preparation</li>
+                
+                    <!-- ko if: $data.lookup --><!-- /ko -->
+                    <li data-bind="text: ko.bindingHandlers.lngProvider.getOption($data), css: { &#39;is-active&#39;: $data.code === $parent.value() }, smartClick: ko.dropDownList.select.bind($parent)" class="dropdown-menu__item" data-animation="ripple">Prepared</li>
+                
+                    <!-- ko if: $data.lookup --><!-- /ko -->
+                    <li data-bind="text: ko.bindingHandlers.lngProvider.getOption($data), css: { &#39;is-active&#39;: $data.code === $parent.value() }, smartClick: ko.dropDownList.select.bind($parent)" class="dropdown-menu__item" data-animation="ripple">In Fulfillment</li>
+                
+                    <!-- ko if: $data.lookup --><!-- /ko -->
+                    <li data-bind="text: ko.bindingHandlers.lngProvider.getOption($data), css: { &#39;is-active&#39;: $data.code === $parent.value() }, smartClick: ko.dropDownList.select.bind($parent)" class="dropdown-menu__item" data-animation="ripple">Fulfilled</li>
+                </ul>
+            </div>
+            <button type="button" class="overlay" data-bind="smartClick: ko.dropDownList.close"></button>
+        </div>
+    </div>
                                 </div>
-                            </div>
-                            <div class="table-wrapper__footer">
-                                <div class="table-footer">
-                                    <button class="btn btn_success" data-animation="ripple" data-bind="smartClick: openModal">
-                                        <i class="icon icon-plus"></i>
-                                        <span class="prm" data-bind="local: &#39;terminalSetup.addTerminal&#39;">Install New Certificate</span>
+                                <div class="toolbar__col toolbar__col_refresh" data-bind="tap: $root.refreshOrders">
+                                    <button class="btn btn_lg btn_white btn_block" data-animation="ripple">
+                                        <i class="icon icon-undo"></i>
+                                        <span data-bind="local: &#39;transactions.refresh&#39;">Refresh</span>
                                     </button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="settings__footer">
-                        <div class="wrapper-btn-center">
-                            <button type="button" data-keypress="Enter" class="btn btn_primary btn_lg btn_block text-uppercase" data-animation="ripple" data-bind="smartClick: done, local: &#39;terminalSetup.done&#39;" data-fat="fat-global-done-button">Done</button>
+                    <div class="orders__content">
+                        <div class="table-wrapper table-wrapper_no-footer">
+                            <div class="table-wrapper__header" data-bind="style: ko.isPoynt ? { left: listPosition() + &#39;px&#39; } : null">
+                                <div class="table-header">
+                                    <ul class="table-header__tr">
+                                        <li class="table-header__th" data-column="orders-status" data-bind="local: &#39;transactions.orderStatus&#39;">Status</li>
+                                        <li class="table-header__th" data-column="orders-id" data-bind="local: &#39;transactions.orderId&#39;">Order ID</li>
+                                        <li class="table-header__th" data-column="orders-name" data-bind="local: &#39;transactions.orderName&#39;">Order Name</li>
+                                        <!-- ko if: $root.register.multipleRegisters --><!-- /ko -->
+                                        <!-- ko if: $root.register.showOrderType --><!-- /ko -->
+                                        <li class="table-header__th" data-column="orders-fulfillment" data-bind="local: &#39;transactions.fulfillment&#39;">Fulfillment</li>
+                                        <li class="table-header__th" data-column="orders-total" data-bind="local: &#39;transactions.orderTotal&#39;">Total</li>
+                                        <li class="table-header__th" data-column="orders-date" data-bind="local: &#39;transactions.orderDate&#39;">Date</li>
+                                        <li class="table-header__th" data-column="orders-employee" data-bind="local: &#39;transactions.employee&#39;">Employee</li>
+                                        <li class="table-header__th" data-column="orders-customer" data-bind="local: &#39;transactions.customer&#39;">Customer</li>
+                                        <li class="table-header__th" data-column="orders-action" data-bind="local: &#39;transactions.action&#39;">Action</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="table-wrapper__body" data-bind="event: ko.isPoynt ? { scroll: onListScroll } : null" data-scrollbar="default">
+                                <div class="table-body table-body_orders table-wrapper__table m-orders-list" data-bind="foreach: transactions">
+                                    <div class="table-body__tr" data-bind="smartClick: $root.selectTransaction">
+                                        <div class="table-body__td" data-column="orders-status" data-bind="attr: { &#39;iue&#39;: $data.orderStatusCode }" iue="4">
+                                            <i data-bind="css: $root.getOrderIcon($data)" class="fa fa-check fa-lg color-green"></i>
+                                        </div>
+                                        <div class="table-body__td" data-column="orders-id">
+                                            <div class="table-wrapper__value" data-bind="text: upc">032190837038</div>
+                                        </div>
+                                        <div class="table-body__td" data-column="orders-name" data-bind="text: $root.getOrderName($data)"></div>
+                                        <!-- ko if: $root.register.multipleRegisters --><!-- /ko -->
+                                        <!-- ko if: $root.register.showOrderType --><!-- /ko -->
+                                        <div class="table-body__td" data-column="orders-fulfillment" data-bind="text: $parent.getFulfillmentStatus(fulfilmentStatusCode)">Fulfilled</div>
+                                        <div class="table-body__td" data-column="orders-total" data-bind="html:ko.formatCurrency($parent.getOrderTotal($data))"><small>$</small><span>756.00</span></div>
+                                        <div class="table-body__td" data-column="orders-date">
+                                            <div class="text-date">
+                                                <span data-bind="text: $parent.toLocaleDateString($data)">8/7/2017</span>
+                                                <small data-bind="text: $parent.toLocaleTimeString($data)">10:49:56 AM</small>
+                                            </div>
+                                        </div>
+                                        <div class="table-body__td" data-column="orders-employee" data-bind="text: employeeName">WSW Project</div>
+                                        <div class="table-body__td" data-column="orders-customer" data-bind="text: customerName">ITV SOATEST</div>
+                                        <div class="table-body__td" data-column="orders-action">
+                                            <div class="orders__action">
+                                                <button class="btn btn_icon" data-bind="visible: $parent.hasOpen($data), smartClick: $parent.openCartWithOrder" style="display: none;"><i class="icon icon-pos"></i></button>
+                                                <button class="btn btn_icon" data-bind="smartClick: $parent.selectTransaction"><i class="icon icon-next"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="table-body__tr" data-bind="smartClick: $root.selectTransaction">
+                                        <div class="table-body__td" data-column="orders-status" data-bind="attr: { &#39;iue&#39;: $data.orderStatusCode }" iue="4">
+                                            <i data-bind="css: $root.getOrderIcon($data)" class="fa fa-check fa-lg color-green"></i>
+                                        </div>
+                                        <div class="table-body__td" data-column="orders-id">
+                                            <div class="table-wrapper__value" data-bind="text: upc">032090826556</div>
+                                        </div>
+                                        <div class="table-body__td" data-column="orders-name" data-bind="text: $root.getOrderName($data)"></div>
+                                        <!-- ko if: $root.register.multipleRegisters --><!-- /ko -->
+                                        <!-- ko if: $root.register.showOrderType --><!-- /ko -->
+                                        <div class="table-body__td" data-column="orders-fulfillment" data-bind="text: $parent.getFulfillmentStatus(fulfilmentStatusCode)">Fulfilled</div>
+                                        <div class="table-body__td" data-column="orders-total" data-bind="html:ko.formatCurrency($parent.getOrderTotal($data))"><small>$</small><span>20.99</span></div>
+                                        <div class="table-body__td" data-column="orders-date">
+                                            <div class="text-date">
+                                                <span data-bind="text: $parent.toLocaleDateString($data)">7/28/2017</span>
+                                                <small data-bind="text: $parent.toLocaleTimeString($data)">7:45:41 PM</small>
+                                            </div>
+                                        </div>
+                                        <div class="table-body__td" data-column="orders-employee" data-bind="text: employeeName">WSW Project</div>
+                                        <div class="table-body__td" data-column="orders-customer" data-bind="text: customerName">Walk-In</div>
+                                        <div class="table-body__td" data-column="orders-action">
+                                            <div class="orders__action">
+                                                <button class="btn btn_icon" data-bind="visible: $parent.hasOpen($data), smartClick: $parent.openCartWithOrder" style="display: none;"><i class="icon icon-pos"></i></button>
+                                                <button class="btn btn_icon" data-bind="smartClick: $parent.selectTransaction"><i class="icon icon-next"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="table-body__tr" data-bind="smartClick: $root.selectTransaction">
+                                        <div class="table-body__td" data-column="orders-status" data-bind="attr: { &#39;iue&#39;: $data.orderStatusCode }" iue="1">
+                                            <i data-bind="css: $root.getOrderIcon($data)" class="fa fa-check-circle fa-lg color-gray"></i>
+                                        </div>
+                                        <div class="table-body__td" data-column="orders-id">
+                                            <div class="table-wrapper__value" data-bind="text: upc">031950810939</div>
+                                        </div>
+                                        <div class="table-body__td" data-column="orders-name" data-bind="text: $root.getOrderName($data)"></div>
+                                        <!-- ko if: $root.register.multipleRegisters --><!-- /ko -->
+                                        <!-- ko if: $root.register.showOrderType --><!-- /ko -->
+                                        <div class="table-body__td" data-column="orders-fulfillment" data-bind="text: $parent.getFulfillmentStatus(fulfilmentStatusCode)">Fulfilled</div>
+                                        <div class="table-body__td" data-column="orders-total" data-bind="html:ko.formatCurrency($parent.getOrderTotal($data))"><small>$</small><span>31.45</span></div>
+                                        <div class="table-body__td" data-column="orders-date">
+                                            <div class="text-date">
+                                                <span data-bind="text: $parent.toLocaleDateString($data)">7/14/2017</span>
+                                                <small data-bind="text: $parent.toLocaleTimeString($data)">7:15:24 PM</small>
+                                            </div>
+                                        </div>
+                                        <div class="table-body__td" data-column="orders-employee" data-bind="text: employeeName">WSW Project</div>
+                                        <div class="table-body__td" data-column="orders-customer" data-bind="text: customerName">Walk-In</div>
+                                        <div class="table-body__td" data-column="orders-action">
+                                            <div class="orders__action">
+                                                <button class="btn btn_icon" data-bind="visible: $parent.hasOpen($data), smartClick: $parent.openCartWithOrder"><i class="icon icon-pos"></i></button>
+                                                <button class="btn btn_icon" data-bind="smartClick: $parent.selectTransaction"><i class="icon icon-next"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="table-body__tr" data-bind="smartClick: $root.selectTransaction">
+                                        <div class="table-body__td" data-column="orders-status" data-bind="attr: { &#39;iue&#39;: $data.orderStatusCode }" iue="4">
+                                            <i data-bind="css: $root.getOrderIcon($data)" class="fa fa-check fa-lg color-green"></i>
+                                        </div>
+                                        <div class="table-body__td" data-column="orders-id">
+                                            <div class="table-wrapper__value" data-bind="text: upc">031950805153</div>
+                                        </div>
+                                        <div class="table-body__td" data-column="orders-name" data-bind="text: $root.getOrderName($data)"></div>
+                                        <!-- ko if: $root.register.multipleRegisters --><!-- /ko -->
+                                        <!-- ko if: $root.register.showOrderType --><!-- /ko -->
+                                        <div class="table-body__td" data-column="orders-fulfillment" data-bind="text: $parent.getFulfillmentStatus(fulfilmentStatusCode)">Fulfilled</div>
+                                        <div class="table-body__td" data-column="orders-total" data-bind="html:ko.formatCurrency($parent.getOrderTotal($data))"><small>$</small><span>31.45</span></div>
+                                        <div class="table-body__td" data-column="orders-date">
+                                            <div class="text-date">
+                                                <span data-bind="text: $parent.toLocaleDateString($data)">7/14/2017</span>
+                                                <small data-bind="text: $parent.toLocaleTimeString($data)">5:01:29 PM</small>
+                                            </div>
+                                        </div>
+                                        <div class="table-body__td" data-column="orders-employee" data-bind="text: employeeName">WSW Project</div>
+                                        <div class="table-body__td" data-column="orders-customer" data-bind="text: customerName">Walk-In</div>
+                                        <div class="table-body__td" data-column="orders-action">
+                                            <div class="orders__action">
+                                                <button class="btn btn_icon" data-bind="visible: $parent.hasOpen($data), smartClick: $parent.openCartWithOrder" style="display: none;"><i class="icon icon-pos"></i></button>
+                                                <button class="btn btn_icon" data-bind="smartClick: $parent.selectTransaction"><i class="icon icon-next"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="table-body__tr" data-bind="smartClick: $root.selectTransaction">
+                                        <div class="table-body__td" data-column="orders-status" data-bind="attr: { &#39;iue&#39;: $data.orderStatusCode }" iue="4">
+                                            <i data-bind="css: $root.getOrderIcon($data)" class="fa fa-check fa-lg color-green"></i>
+                                        </div>
+                                        <div class="table-body__td" data-column="orders-id">
+                                            <div class="table-wrapper__value" data-bind="text: upc">031940791005</div>
+                                        </div>
+                                        <div class="table-body__td" data-column="orders-name" data-bind="text: $root.getOrderName($data)"></div>
+                                        <!-- ko if: $root.register.multipleRegisters --><!-- /ko -->
+                                        <!-- ko if: $root.register.showOrderType --><!-- /ko -->
+                                        <div class="table-body__td" data-column="orders-fulfillment" data-bind="text: $parent.getFulfillmentStatus(fulfilmentStatusCode)">Fulfilled</div>
+                                        <div class="table-body__td" data-column="orders-total" data-bind="html:ko.formatCurrency($parent.getOrderTotal($data))"><small>$</small><span>31.45</span></div>
+                                        <div class="table-body__td" data-column="orders-date">
+                                            <div class="text-date">
+                                                <span data-bind="text: $parent.toLocaleDateString($data)">7/13/2017</span>
+                                                <small data-bind="text: $parent.toLocaleTimeString($data)">7:56:54 PM</small>
+                                            </div>
+                                        </div>
+                                        <div class="table-body__td" data-column="orders-employee" data-bind="text: employeeName">WSW Project</div>
+                                        <div class="table-body__td" data-column="orders-customer" data-bind="text: customerName">Walk-In</div>
+                                        <div class="table-body__td" data-column="orders-action">
+                                            <div class="orders__action">
+                                                <button class="btn btn_icon" data-bind="visible: $parent.hasOpen($data), smartClick: $parent.openCartWithOrder" style="display: none;"><i class="icon icon-pos"></i></button>
+                                                <button class="btn btn_icon" data-bind="smartClick: $parent.selectTransaction"><i class="icon icon-next"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="table-body__tr" data-bind="smartClick: $root.selectTransaction">
+                                        <div class="table-body__td" data-column="orders-status" data-bind="attr: { &#39;iue&#39;: $data.orderStatusCode }" iue="4">
+                                            <i data-bind="css: $root.getOrderIcon($data)" class="fa fa-check fa-lg color-green"></i>
+                                        </div>
+                                        <div class="table-body__td" data-column="orders-id">
+                                            <div class="table-wrapper__value" data-bind="text: upc">031920783359</div>
+                                        </div>
+                                        <div class="table-body__td" data-column="orders-name" data-bind="text: $root.getOrderName($data)"></div>
+                                        <!-- ko if: $root.register.multipleRegisters --><!-- /ko -->
+                                        <!-- ko if: $root.register.showOrderType --><!-- /ko -->
+                                        <div class="table-body__td" data-column="orders-fulfillment" data-bind="text: $parent.getFulfillmentStatus(fulfilmentStatusCode)">Fulfilled</div>
+                                        <div class="table-body__td" data-column="orders-total" data-bind="html:ko.formatCurrency($parent.getOrderTotal($data))"><small>$</small><span>46.20</span></div>
+                                        <div class="table-body__td" data-column="orders-date">
+                                            <div class="text-date">
+                                                <span data-bind="text: $parent.toLocaleDateString($data)">7/11/2017</span>
+                                                <small data-bind="text: $parent.toLocaleTimeString($data)">4:00:52 PM</small>
+                                            </div>
+                                        </div>
+                                        <div class="table-body__td" data-column="orders-employee" data-bind="text: employeeName">WSW Project</div>
+                                        <div class="table-body__td" data-column="orders-customer" data-bind="text: customerName">Walk-In</div>
+                                        <div class="table-body__td" data-column="orders-action">
+                                            <div class="orders__action">
+                                                <button class="btn btn_icon" data-bind="visible: $parent.hasOpen($data), smartClick: $parent.openCartWithOrder" style="display: none;"><i class="icon icon-pos"></i></button>
+                                                <button class="btn btn_icon" data-bind="smartClick: $parent.selectTransaction"><i class="icon icon-next"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="table-body__tr" data-bind="smartClick: $root.selectTransaction">
+                                        <div class="table-body__td" data-column="orders-status" data-bind="attr: { &#39;iue&#39;: $data.orderStatusCode }" iue="4">
+                                            <i data-bind="css: $root.getOrderIcon($data)" class="fa fa-check fa-lg color-green"></i>
+                                        </div>
+                                        <div class="table-body__td" data-column="orders-id">
+                                            <div class="table-wrapper__value" data-bind="text: upc">031920779146</div>
+                                        </div>
+                                        <div class="table-body__td" data-column="orders-name" data-bind="text: $root.getOrderName($data)"></div>
+                                        <!-- ko if: $root.register.multipleRegisters --><!-- /ko -->
+                                        <!-- ko if: $root.register.showOrderType --><!-- /ko -->
+                                        <div class="table-body__td" data-column="orders-fulfillment" data-bind="text: $parent.getFulfillmentStatus(fulfilmentStatusCode)">Fulfilled</div>
+                                        <div class="table-body__td" data-column="orders-total" data-bind="html:ko.formatCurrency($parent.getOrderTotal($data))"><small>$</small><span>10.49</span></div>
+                                        <div class="table-body__td" data-column="orders-date">
+                                            <div class="text-date">
+                                                <span data-bind="text: $parent.toLocaleDateString($data)">7/11/2017</span>
+                                                <small data-bind="text: $parent.toLocaleTimeString($data)">3:59:38 PM</small>
+                                            </div>
+                                        </div>
+                                        <div class="table-body__td" data-column="orders-employee" data-bind="text: employeeName">WSW Project</div>
+                                        <div class="table-body__td" data-column="orders-customer" data-bind="text: customerName">Walk-In</div>
+                                        <div class="table-body__td" data-column="orders-action">
+                                            <div class="orders__action">
+                                                <button class="btn btn_icon" data-bind="visible: $parent.hasOpen($data), smartClick: $parent.openCartWithOrder" style="display: none;"><i class="icon icon-pos"></i></button>
+                                                <button class="btn btn_icon" data-bind="smartClick: $parent.selectTransaction"><i class="icon icon-next"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="table-body__tr" data-bind="smartClick: $root.selectTransaction">
+                                        <div class="table-body__td" data-column="orders-status" data-bind="attr: { &#39;iue&#39;: $data.orderStatusCode }" iue="4">
+                                            <i data-bind="css: $root.getOrderIcon($data)" class="fa fa-check fa-lg color-green"></i>
+                                        </div>
+                                        <div class="table-body__td" data-column="orders-id">
+                                            <div class="table-wrapper__value" data-bind="text: upc">031920760276</div>
+                                        </div>
+                                        <div class="table-body__td" data-column="orders-name" data-bind="text: $root.getOrderName($data)"></div>
+                                        <!-- ko if: $root.register.multipleRegisters --><!-- /ko -->
+                                        <!-- ko if: $root.register.showOrderType --><!-- /ko -->
+                                        <div class="table-body__td" data-column="orders-fulfillment" data-bind="text: $parent.getFulfillmentStatus(fulfilmentStatusCode)">Fulfilled</div>
+                                        <div class="table-body__td" data-column="orders-total" data-bind="html:ko.formatCurrency($parent.getOrderTotal($data))"><small>$</small><span>10.49</span></div>
+                                        <div class="table-body__td" data-column="orders-date">
+                                            <div class="text-date">
+                                                <span data-bind="text: $parent.toLocaleDateString($data)">7/11/2017</span>
+                                                <small data-bind="text: $parent.toLocaleTimeString($data)">3:44:57 PM</small>
+                                            </div>
+                                        </div>
+                                        <div class="table-body__td" data-column="orders-employee" data-bind="text: employeeName">WSW Project</div>
+                                        <div class="table-body__td" data-column="orders-customer" data-bind="text: customerName">Walk-In</div>
+                                        <div class="table-body__td" data-column="orders-action">
+                                            <div class="orders__action">
+                                                <button class="btn btn_icon" data-bind="visible: $parent.hasOpen($data), smartClick: $parent.openCartWithOrder" style="display: none;"><i class="icon icon-pos"></i></button>
+                                                <button class="btn btn_icon" data-bind="smartClick: $parent.selectTransaction"><i class="icon icon-next"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="table-body__tr" data-bind="smartClick: $root.selectTransaction">
+                                        <div class="table-body__td" data-column="orders-status" data-bind="attr: { &#39;iue&#39;: $data.orderStatusCode }" iue="4">
+                                            <i data-bind="css: $root.getOrderIcon($data)" class="fa fa-check fa-lg color-green"></i>
+                                        </div>
+                                        <div class="table-body__td" data-column="orders-id">
+                                            <div class="table-wrapper__value" data-bind="text: upc">031920759866</div>
+                                        </div>
+                                        <div class="table-body__td" data-column="orders-name" data-bind="text: $root.getOrderName($data)"></div>
+                                        <!-- ko if: $root.register.multipleRegisters --><!-- /ko -->
+                                        <!-- ko if: $root.register.showOrderType --><!-- /ko -->
+                                        <div class="table-body__td" data-column="orders-fulfillment" data-bind="text: $parent.getFulfillmentStatus(fulfilmentStatusCode)">Fulfilled</div>
+                                        <div class="table-body__td" data-column="orders-total" data-bind="html:ko.formatCurrency($parent.getOrderTotal($data))"><small>$</small><span>41.99</span></div>
+                                        <div class="table-body__td" data-column="orders-date">
+                                            <div class="text-date">
+                                                <span data-bind="text: $parent.toLocaleDateString($data)">7/11/2017</span>
+                                                <small data-bind="text: $parent.toLocaleTimeString($data)">3:42:52 PM</small>
+                                            </div>
+                                        </div>
+                                        <div class="table-body__td" data-column="orders-employee" data-bind="text: employeeName">WSW Project</div>
+                                        <div class="table-body__td" data-column="orders-customer" data-bind="text: customerName">Walk-In</div>
+                                        <div class="table-body__td" data-column="orders-action">
+                                            <div class="orders__action">
+                                                <button class="btn btn_icon" data-bind="visible: $parent.hasOpen($data), smartClick: $parent.openCartWithOrder" style="display: none;"><i class="icon icon-pos"></i></button>
+                                                <button class="btn btn_icon" data-bind="smartClick: $parent.selectTransaction"><i class="icon icon-next"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="table-body__tr" data-bind="smartClick: $root.selectTransaction">
+                                        <div class="table-body__td" data-column="orders-status" data-bind="attr: { &#39;iue&#39;: $data.orderStatusCode }" iue="4">
+                                            <i data-bind="css: $root.getOrderIcon($data)" class="fa fa-check fa-lg color-green"></i>
+                                        </div>
+                                        <div class="table-body__td" data-column="orders-id">
+                                            <div class="table-wrapper__value" data-bind="text: upc">031810748432</div>
+                                        </div>
+                                        <div class="table-body__td" data-column="orders-name" data-bind="text: $root.getOrderName($data)"></div>
+                                        <!-- ko if: $root.register.multipleRegisters --><!-- /ko -->
+                                        <!-- ko if: $root.register.showOrderType --><!-- /ko -->
+                                        <div class="table-body__td" data-column="orders-fulfillment" data-bind="text: $parent.getFulfillmentStatus(fulfilmentStatusCode)">Fulfilled</div>
+                                        <div class="table-body__td" data-column="orders-total" data-bind="html:ko.formatCurrency($parent.getOrderTotal($data))"><small>$</small><span>31.45</span></div>
+                                        <div class="table-body__td" data-column="orders-date">
+                                            <div class="text-date">
+                                                <span data-bind="text: $parent.toLocaleDateString($data)">6/30/2017</span>
+                                                <small data-bind="text: $parent.toLocaleTimeString($data)">6:14:01 PM</small>
+                                            </div>
+                                        </div>
+                                        <div class="table-body__td" data-column="orders-employee" data-bind="text: employeeName">WSW Project</div>
+                                        <div class="table-body__td" data-column="orders-customer" data-bind="text: customerName">Walk-In</div>
+                                        <div class="table-body__td" data-column="orders-action">
+                                            <div class="orders__action">
+                                                <button class="btn btn_icon" data-bind="visible: $parent.hasOpen($data), smartClick: $parent.openCartWithOrder" style="display: none;"><i class="icon icon-pos"></i></button>
+                                                <button class="btn btn_icon" data-bind="smartClick: $parent.selectTransaction"><i class="icon icon-next"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="table-body__tr" data-bind="smartClick: $root.selectTransaction">
+                                        <div class="table-body__td" data-column="orders-status" data-bind="attr: { &#39;iue&#39;: $data.orderStatusCode }" iue="6">
+                                            <i data-bind="css: $root.getOrderIcon($data)" class="fa fa-arrow-left fa-lg color-red"></i>
+                                        </div>
+                                        <div class="table-body__td" data-column="orders-id">
+                                            <div class="table-wrapper__value" data-bind="text: upc">031740693970</div>
+                                        </div>
+                                        <div class="table-body__td" data-column="orders-name" data-bind="text: $root.getOrderName($data)"></div>
+                                        <!-- ko if: $root.register.multipleRegisters --><!-- /ko -->
+                                        <!-- ko if: $root.register.showOrderType --><!-- /ko -->
+                                        <div class="table-body__td" data-column="orders-fulfillment" data-bind="text: $parent.getFulfillmentStatus(fulfilmentStatusCode)">Fulfilled</div>
+                                        <div class="table-body__td" data-column="orders-total" data-bind="html:ko.formatCurrency($parent.getOrderTotal($data))"><small>$</small><span>270.00</span></div>
+                                        <div class="table-body__td" data-column="orders-date">
+                                            <div class="text-date">
+                                                <span data-bind="text: $parent.toLocaleDateString($data)">6/23/2017</span>
+                                                <small data-bind="text: $parent.toLocaleTimeString($data)">2:45:33 PM</small>
+                                            </div>
+                                        </div>
+                                        <div class="table-body__td" data-column="orders-employee" data-bind="text: employeeName">WSW Project</div>
+                                        <div class="table-body__td" data-column="orders-customer" data-bind="text: customerName">ITV SOATEST</div>
+                                        <div class="table-body__td" data-column="orders-action">
+                                            <div class="orders__action">
+                                                <button class="btn btn_icon" data-bind="visible: $parent.hasOpen($data), smartClick: $parent.openCartWithOrder" style="display: none;"><i class="icon icon-pos"></i></button>
+                                                <button class="btn btn_icon" data-bind="smartClick: $parent.selectTransaction"><i class="icon icon-next"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="table-body__tr" data-bind="smartClick: $root.selectTransaction">
+                                        <div class="table-body__td" data-column="orders-status" data-bind="attr: { &#39;iue&#39;: $data.orderStatusCode }" iue="5">
+                                            <i data-bind="css: $root.getOrderIcon($data)" class="fa fa-arrow-circle-o-left fa-lg color-red"></i>
+                                        </div>
+                                        <div class="table-body__td" data-column="orders-id">
+                                            <div class="table-wrapper__value" data-bind="text: upc">031740648242</div>
+                                        </div>
+                                        <div class="table-body__td" data-column="orders-name" data-bind="text: $root.getOrderName($data)"></div>
+                                        <!-- ko if: $root.register.multipleRegisters --><!-- /ko -->
+                                        <!-- ko if: $root.register.showOrderType --><!-- /ko -->
+                                        <div class="table-body__td" data-column="orders-fulfillment" data-bind="text: $parent.getFulfillmentStatus(fulfilmentStatusCode)">Fulfilled</div>
+                                        <div class="table-body__td" data-column="orders-total" data-bind="html:ko.formatCurrency($parent.getOrderTotal($data))"><small>$</small><span>273.00</span></div>
+                                        <div class="table-body__td" data-column="orders-date">
+                                            <div class="text-date">
+                                                <span data-bind="text: $parent.toLocaleDateString($data)">6/23/2017</span>
+                                                <small data-bind="text: $parent.toLocaleTimeString($data)">2:39:19 PM</small>
+                                            </div>
+                                        </div>
+                                        <div class="table-body__td" data-column="orders-employee" data-bind="text: employeeName">WSW Project</div>
+                                        <div class="table-body__td" data-column="orders-customer" data-bind="text: customerName">ITV SOATEST</div>
+                                        <div class="table-body__td" data-column="orders-action">
+                                            <div class="orders__action">
+                                                <button class="btn btn_icon" data-bind="visible: $parent.hasOpen($data), smartClick: $parent.openCartWithOrder" style="display: none;"><i class="icon icon-pos"></i></button>
+                                                <button class="btn btn_icon" data-bind="smartClick: $parent.selectTransaction"><i class="icon icon-next"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="table-body__tr" data-bind="smartClick: $root.selectTransaction">
+                                        <div class="table-body__td" data-column="orders-status" data-bind="attr: { &#39;iue&#39;: $data.orderStatusCode }" iue="7">
+                                            <i data-bind="css: $root.getOrderIcon($data)" class="fa fa-ban fa-lg color-gray"></i>
+                                        </div>
+                                        <div class="table-body__td" data-column="orders-id">
+                                            <div class="table-wrapper__value" data-bind="text: upc">031740611325</div>
+                                        </div>
+                                        <div class="table-body__td" data-column="orders-name" data-bind="text: $root.getOrderName($data)"></div>
+                                        <!-- ko if: $root.register.multipleRegisters --><!-- /ko -->
+                                        <!-- ko if: $root.register.showOrderType --><!-- /ko -->
+                                        <div class="table-body__td" data-column="orders-fulfillment" data-bind="text: $parent.getFulfillmentStatus(fulfilmentStatusCode)">Fulfilled</div>
+                                        <div class="table-body__td" data-column="orders-total" data-bind="html:ko.formatCurrency($parent.getOrderTotal($data))"><small>$</small><span>273.00</span></div>
+                                        <div class="table-body__td" data-column="orders-date">
+                                            <div class="text-date">
+                                                <span data-bind="text: $parent.toLocaleDateString($data)">6/23/2017</span>
+                                                <small data-bind="text: $parent.toLocaleTimeString($data)">1:37:46 PM</small>
+                                            </div>
+                                        </div>
+                                        <div class="table-body__td" data-column="orders-employee" data-bind="text: employeeName">WSW Project</div>
+                                        <div class="table-body__td" data-column="orders-customer" data-bind="text: customerName">ITV SOATEST</div>
+                                        <div class="table-body__td" data-column="orders-action">
+                                            <div class="orders__action">
+                                                <button class="btn btn_icon" data-bind="visible: $parent.hasOpen($data), smartClick: $parent.openCartWithOrder" style="display: none;"><i class="icon icon-pos"></i></button>
+                                                <button class="btn btn_icon" data-bind="smartClick: $parent.selectTransaction"><i class="icon icon-next"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                    </div>
+                    <div class="orders__footer">
+                        <button class="btn btn_default" data-animation="ripple" data-bind="smartClick: showMore">
+                            <i class="icon icon-expand"></i>
+                            <span data-bind="local: &#39;transactions.showMore&#39;">Show more</span>
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </main>
-    <!-- begin add-terminal -->
-    <div class="modal add-terminal" data-bind="css: { &#39;is-open&#39;: isModalOpen }">
-        <div class="modal__container add-terminal__container">
-            <div class="add-terminal__header">
-                <button class="btn-icon add-terminal__close is-closable" data-bind="smartClick: closeModal">
-                    <i class="icon icon-close"></i>
-                </button>
-                <div class="add-terminal__title" data-bind="local: &#39;terminalSetup.addNewTerminal&#39;">Add new terminal</div>
-            </div>
-            <div class="add-terminal__body">
-                <div class="add-terminal__field">
-                    <div class="field ">
-                        <div class="field__inner">
-                            <label class="field__label" for="terminal-serial-number" data-bind="local: &#39;terminalSetup.serialNumber&#39;">Serial Number</label>
-                            <div class="field__box">
-                                <input class="input field__input input_lg add-terminal__input" id="terminal-serial-number" type="text" data-bind="value: serialNo, valueUpdate: &#39;input&#39;, local: &#39;terminalSetup.input_serial&#39;, localAttr: &#39;placeholder&#39;" required="" placeholder="(required)">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="add-terminal__field">
-                    <div class="field ">
-                        <div class="field__inner">
-                            <label class="field__label" for="terminal-name" data-bind="local: &#39;terminalSetup.friendlyName&#39;">Friendly Name</label>
-                            <div class="field__box">
-                                <input class="input field__input input_lg add-terminal__input" id="terminal-name" type="text" maxlength="20" data-bind="valueUpdate: &#39;keyup&#39;, value: terminalName, local: &#39;terminalSetup.input_name&#39;, localAttr: &#39;placeholder&#39;" placeholder="(optional)">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="add-terminal__footer">
-                <button class="btn btn_success btn_lg btn_block" data-animation="ripple" data-bind="enable: serialNo, smartClick: $root.add, local: &#39;terminalSetup.submit&#39;" disabled="">Submit</button>
-            </div>
-        </div>
-        <!-- begin overlay --><button data-bind="css: { &#39;is-open&#39;: isModalOpen } , smartClick: closeModal" type="button" class="overlay" data-color="dark-gray" data-overlay="overlay"></button>
-        <!-- end overlay -->
-    </div>
-    <!-- end add-terminal -->
-    <!-- begin add terminal by ip -->
-    <div class="modal add-terminal" data-bind="css: { &#39;is-open&#39;: isModal2Open }">
-        <div class="modal__container add-terminal__container">
-            <div class="add-terminal__header">
-                <button class="btn-icon add-terminal__close is-closable" data-bind="smartClick: closeModal2">
-                    <i class="icon icon-close"></i>
-                </button>
-                <div class="add-terminal__title" data-bind="local: &#39;terminalSetup.addNewTerminal&#39;">Add new terminal</div>
-            </div>
-            <div class="add-terminal__body">
-                <div class="add-terminal__field">
-                    <div class="field ">
-                        <div class="field__inner">
-                            <label class="field__label" for="terminal-ip-address" data-bind="local: &#39;terminalSetup.ipAddress&#39;">IP Address</label>
-                            <div class="field__box">
-                                <input class="input field__input input_lg add-terminal__input" id="terminal-ip-address" type="text" data-bind="value: terminalIpAddress, valueUpdate: &#39;input&#39;, local: &#39;terminalSetup.ipAddress&#39;, localAttr: &#39;placeholder&#39;" required="" placeholder="IP Address">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="add-terminal__field">
-                    <div class="field ">
-                        <div class="field__inner">
-                            <label class="field__label" for="terminal-port" data-bind="local: &#39;terminalSetup.port&#39;">Port Number</label>
-                            <div class="field__box">
-                                <input class="input field__input input_lg add-terminal__input" id="terminal-port" type="text" maxlength="20" data-bind="valueUpdate: &#39;keyup&#39;, value: terminalPort, local: &#39;terminalSetup.port&#39;, localAttr: &#39;placeholder&#39;" placeholder="Port Number">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="add-terminal__field" data-bind="visible: $root.showAcceptCertificateLink &amp;&amp; acceptCertificateLinkEnabled()" style="display: none;">
-                    <div class="field ">
-                        <div class="field__inner">
-                            <a style="font-size: 18px;" href="https://nan/?AkEwMBwxLjI4A0s=" target="_blank" data-bind="smartClick: acceptCertificateClick, attr: { &#39;href&#39;: acceptCertificateLink2 }, local: &#39;terminalSetup.acceptCertificate&#39;">Accept certificate</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="add-terminal__footer">
-                <button class="btn btn_success btn_lg btn_block" data-animation="ripple" data-bind="enable: allowAddTerminal(), smartClick: $root.addByIp, local: &#39;terminalSetup.addTerminal&#39;" disabled="">Add terminal</button>
-            </div>
-        </div>
-        <!-- begin overlay --><button data-bind="css: { &#39;is-open&#39;: isModal2Open } , smartClick: closeModal2" type="button" class="overlay" data-color="dark-gray" data-overlay="overlay"></button>
-        <!-- end overlay -->
-    </div>
-    <!-- end add terminal by ip -->
     <!-- END content -->
-</div><div class="applica" data-view="views/settings" style="display: none;">
-    <!-- BEGIN content -->
-    <main class="main">
-        <div class="inner settings">
-            <div class="settings__container step-body">
-                <div class="settings__body settings__body_default step-body__section">
-
-                    <div class="loader" data-bind="visible: loading" style="display: none;">
-                        <div class="loading loader__icon"></div>
-                    </div>
-
-                    <div class="form form_sm">
-                        <div class="simple-field" data-bind="visible: isHintVisible">
-                            <div class="title-xlg simple-field__title" data-bind="text: hint">No cash drawer set.</div>
-                        </div>
-                        <div class="simple-field">
-                            <div class="simple-field__error" data-bind="text: errorMessage"></div>
-                        </div>
-                    <!-- ko if: deviceCenterAvailable -->
-                        <div class="simple-field">
-                            <label for="drawer-device-center-address" class="simple-field__label" data-bind="local: &#39;settings.deviceCenterAddress&#39;">Device Center Address</label>
-                            <div class="input-box simple-field__input">
-                                <input type="text" class="simple-input" id="drawer-device-center-address" data-bind="value: deviceCenterAddress, local: &#39;settings.deviceCenterAddress&#39;, localAttr: &#39;placeholder&#39;" placeholder="Device Center Address">
-                                <button class="btn-icon btn-icon_gray input-box__clear" data-bind="clearValue: deviceCenterAddress, defaultValue: deviceCenterDefaultAddress"><i class="icon icon-close"></i></button>
-                            </div>
-                        </div>
-                        <div class="simple-field">
-                            <label for="drawer-security-key" class="simple-field__label" data-bind="local: &#39;settings.deviceCenterSecurityKey&#39;">Security Key</label>
-                            <div class="input-box simple-field__input">
-                                <input type="text" class="simple-input" placeholder="Security Key" id="drawer-security-key" data-bind="value: deviceCenterSecurityKey, local: &#39;settings.deviceCenterSecurityKey&#39;, localAttr: &#39;placeholder&#39;">
-                                <button class="btn-icon btn-icon_gray input-box__clear" data-bind="clearValue: deviceCenterSecurityKey, defaultValue: deviceCenterDefaultSecurityKey">
-                                    <i class="icon icon-close"></i>
-                                </button>
-                            </div>
-                        </div>
-                    <!-- /ko -->
-                    <!-- ko if: deviceType() === 0 --><!-- /ko -->
-                    <!-- ko if: deviceType() === 1 -->
-                        <div class="simple-field cash-drawer" data-bind="visible: isDeviceListVisible" style="display: none;">
-                            <div class="printer-setup__title" data-bind="local: &#39;settings.cashDrawers&#39;">Cash Drawers</div>
-                            <div class="cash-drawer__list" data-bind="foreach: deviceList"></div>
-                        </div>
-                    <!-- /ko -->
-                    </div>
-                </div>
-                <div class="step-body__footer section">
-                    <div class="wrapper-btn-center">
-                        <button type="button" class="btn btn_lg btn_block btn_primary text-uppercase" data-animation="ripple" data-keypress="Enter" data-fat="fat-global-done-button" data-bind="smartClick: done, visible: isDoneVisible, local: &#39;settings.done&#39;" style="display: none;">Done</button>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </main>
-    <!-- END content -->
-</div><div class="applica" data-view="views/cart" style="display: none;">
+</div><div class="applica" data-view="views/cart" style="" data-active-view="true">
     <main class="main" data-toggle-class-container="main-container">
         <div class="toolbar_overlay" data-bind="visible: tabs().hidden()" style="display: none;"></div>
 
@@ -501,7 +776,7 @@
             
                 <!--,  smartClick: $parent.selectInventoryCategory.bind($parent)-->
                 
-            <div aria-live="polite" class="slick-list draggable"><div class="slick-track" role="listbox" style="opacity: 1; width: 0px; transform: translate3d(0px, 0px, 0px);"><div class="categories__container slick-slide slick-cloned" data-bind="foreach: { data: $data, as: &#39;cat&#39; }" tabindex="-1" role="option" aria-describedby="slick-slide07" style="width: 0px;" data-slick-index="-1" aria-hidden="true">
+            <div aria-live="polite" class="slick-list draggable"><div class="slick-track" role="listbox" style="opacity: 1; width: 8640px; transform: translate3d(-864px, 0px, 0px);"><div class="categories__container slick-slide slick-cloned" data-bind="foreach: { data: $data, as: &#39;cat&#39; }" tabindex="-1" role="option" aria-describedby="slick-slide07" style="width: 864px;" data-slick-index="-1" aria-hidden="true">
                     <div class="categories__item" data-bind="attr: { &#39;data-cid&#39;: id }" data-cid="1046">
                         <div class="sm-box" data-animation="ripple" data-bind="css: { &#39;is-active&#39;: cat == $root.selectedCategory() }, style: { background: $root.getCategoryColor(cat.id) }" style="background: rgb(247, 143, 40);">
                             <!-- ko if: cat == $root.selectedCategory()--><!--/ko-->
@@ -522,7 +797,7 @@
                             <div class="sm-box__title" data-bind="localizedName: cat.namesLocalized, shortName: cat.isExternalCategory">Wireless Charging Pa</div>
                         </div>
                     </div>
-                </div><div class="categories__container slick-slide slick-current slick-active" data-bind="foreach: { data: $data, as: &#39;cat&#39; }" tabindex="-1" role="option" aria-describedby="slick-slide00" style="width: 0px;" data-slick-index="0" aria-hidden="false">
+                </div><div class="categories__container slick-slide slick-current slick-active" data-bind="foreach: { data: $data, as: &#39;cat&#39; }" tabindex="-1" role="option" aria-describedby="slick-slide00" style="width: 864px;" data-slick-index="0" aria-hidden="false">
                     <div class="categories__item" data-bind="attr: { &#39;data-cid&#39;: id }" data-cid="a527ebc1da7043368f64a38fdc2f19e0">
                         <div class="sm-box is-active" data-animation="ripple" data-bind="css: { &#39;is-active&#39;: cat == $root.selectedCategory() }, style: { background: $root.getCategoryColor(cat.id) }" style="background: rgb(121, 121, 196);">
                             <!-- ko if: cat == $root.selectedCategory()-->
@@ -580,7 +855,7 @@
                             <div class="sm-box__title" data-bind="localizedName: cat.namesLocalized, shortName: cat.isExternalCategory">Bluetooth</div>
                         </div>
                     </div>
-                </div><div class="categories__container slick-slide" data-bind="foreach: { data: $data, as: &#39;cat&#39; }" tabindex="-1" role="option" aria-describedby="slick-slide01" style="width: 0px;" data-slick-index="1" aria-hidden="true">
+                </div><div class="categories__container slick-slide" data-bind="foreach: { data: $data, as: &#39;cat&#39; }" tabindex="-1" role="option" aria-describedby="slick-slide01" style="width: 864px;" data-slick-index="1" aria-hidden="true">
                     <div class="categories__item" data-bind="attr: { &#39;data-cid&#39;: id }" data-cid="1054">
                         <div class="sm-box" data-animation="ripple" data-bind="css: { &#39;is-active&#39;: cat == $root.selectedCategory() }, style: { background: $root.getCategoryColor(cat.id) }" style="background: rgb(247, 143, 40);">
                             <!-- ko if: cat == $root.selectedCategory()--><!--/ko-->
@@ -636,7 +911,7 @@
                             <div class="sm-box__title" data-bind="localizedName: cat.namesLocalized, shortName: cat.isExternalCategory">Displays</div>
                         </div>
                     </div>
-                </div><div class="categories__container slick-slide" data-bind="foreach: { data: $data, as: &#39;cat&#39; }" tabindex="-1" role="option" aria-describedby="slick-slide02" style="width: 0px;" data-slick-index="2" aria-hidden="true">
+                </div><div class="categories__container slick-slide" data-bind="foreach: { data: $data, as: &#39;cat&#39; }" tabindex="-1" role="option" aria-describedby="slick-slide02" style="width: 864px;" data-slick-index="2" aria-hidden="true">
                     <div class="categories__item" data-bind="attr: { &#39;data-cid&#39;: id }" data-cid="1056">
                         <div class="sm-box" data-animation="ripple" data-bind="css: { &#39;is-active&#39;: cat == $root.selectedCategory() }, style: { background: $root.getCategoryColor(cat.id) }" style="background: rgb(241, 73, 28);">
                             <!-- ko if: cat == $root.selectedCategory()--><!--/ko-->
@@ -692,7 +967,7 @@
                             <div class="sm-box__title" data-bind="localizedName: cat.namesLocalized, shortName: cat.isExternalCategory">GSMHSPA</div>
                         </div>
                     </div>
-                </div><div class="categories__container slick-slide" data-bind="foreach: { data: $data, as: &#39;cat&#39; }" tabindex="-1" role="option" aria-describedby="slick-slide03" style="width: 0px;" data-slick-index="3" aria-hidden="true">
+                </div><div class="categories__container slick-slide" data-bind="foreach: { data: $data, as: &#39;cat&#39; }" tabindex="-1" role="option" aria-describedby="slick-slide03" style="width: 864px;" data-slick-index="3" aria-hidden="true">
                     <div class="categories__item" data-bind="attr: { &#39;data-cid&#39;: id }" data-cid="1022">
                         <div class="sm-box" data-animation="ripple" data-bind="css: { &#39;is-active&#39;: cat == $root.selectedCategory() }, style: { background: $root.getCategoryColor(cat.id) }" style="background: rgb(84, 84, 181);">
                             <!-- ko if: cat == $root.selectedCategory()--><!--/ko-->
@@ -748,7 +1023,7 @@
                             <div class="sm-box__title" data-bind="localizedName: cat.namesLocalized, shortName: cat.isExternalCategory">In-Ear Wired Headset</div>
                         </div>
                     </div>
-                </div><div class="categories__container slick-slide" data-bind="foreach: { data: $data, as: &#39;cat&#39; }" tabindex="-1" role="option" aria-describedby="slick-slide04" style="width: 0px;" data-slick-index="4" aria-hidden="true">
+                </div><div class="categories__container slick-slide" data-bind="foreach: { data: $data, as: &#39;cat&#39; }" tabindex="-1" role="option" aria-describedby="slick-slide04" style="width: 864px;" data-slick-index="4" aria-hidden="true">
                     <div class="categories__item" data-bind="attr: { &#39;data-cid&#39;: id }" data-cid="1001">
                         <div class="sm-box" data-animation="ripple" data-bind="css: { &#39;is-active&#39;: cat == $root.selectedCategory() }, style: { background: $root.getCategoryColor(cat.id) }" style="background: rgb(247, 143, 40);">
                             <!-- ko if: cat == $root.selectedCategory()--><!--/ko-->
@@ -804,7 +1079,7 @@
                             <div class="sm-box__title" data-bind="localizedName: cat.namesLocalized, shortName: cat.isExternalCategory">Over-Ear Wired Headp</div>
                         </div>
                     </div>
-                </div><div class="categories__container slick-slide" data-bind="foreach: { data: $data, as: &#39;cat&#39; }" tabindex="-1" role="option" aria-describedby="slick-slide05" style="width: 0px;" data-slick-index="5" aria-hidden="true">
+                </div><div class="categories__container slick-slide" data-bind="foreach: { data: $data, as: &#39;cat&#39; }" tabindex="-1" role="option" aria-describedby="slick-slide05" style="width: 864px;" data-slick-index="5" aria-hidden="true">
                     <div class="categories__item" data-bind="attr: { &#39;data-cid&#39;: id }" data-cid="1058">
                         <div class="sm-box" data-animation="ripple" data-bind="css: { &#39;is-active&#39;: cat == $root.selectedCategory() }, style: { background: $root.getCategoryColor(cat.id) }" style="background: rgb(241, 73, 28);">
                             <!-- ko if: cat == $root.selectedCategory()--><!--/ko-->
@@ -860,7 +1135,7 @@
                             <div class="sm-box__title" data-bind="localizedName: cat.namesLocalized, shortName: cat.isExternalCategory">Specialty Products</div>
                         </div>
                     </div>
-                </div><div class="categories__container slick-slide" data-bind="foreach: { data: $data, as: &#39;cat&#39; }" tabindex="-1" role="option" aria-describedby="slick-slide06" style="width: 0px;" data-slick-index="6" aria-hidden="true">
+                </div><div class="categories__container slick-slide" data-bind="foreach: { data: $data, as: &#39;cat&#39; }" tabindex="-1" role="option" aria-describedby="slick-slide06" style="width: 864px;" data-slick-index="6" aria-hidden="true">
                     <div class="categories__item" data-bind="attr: { &#39;data-cid&#39;: id }" data-cid="1033">
                         <div class="sm-box" data-animation="ripple" data-bind="css: { &#39;is-active&#39;: cat == $root.selectedCategory() }, style: { background: $root.getCategoryColor(cat.id) }" style="background: rgb(84, 84, 181);">
                             <!-- ko if: cat == $root.selectedCategory()--><!--/ko-->
@@ -916,7 +1191,7 @@
                             <div class="sm-box__title" data-bind="localizedName: cat.namesLocalized, shortName: cat.isExternalCategory">Viewer</div>
                         </div>
                     </div>
-                </div><div class="categories__container slick-slide" data-bind="foreach: { data: $data, as: &#39;cat&#39; }" tabindex="-1" role="option" aria-describedby="slick-slide07" style="width: 0px;" data-slick-index="7" aria-hidden="true">
+                </div><div class="categories__container slick-slide" data-bind="foreach: { data: $data, as: &#39;cat&#39; }" tabindex="-1" role="option" aria-describedby="slick-slide07" style="width: 864px;" data-slick-index="7" aria-hidden="true">
                     <div class="categories__item" data-bind="attr: { &#39;data-cid&#39;: id }" data-cid="1046">
                         <div class="sm-box" data-animation="ripple" data-bind="css: { &#39;is-active&#39;: cat == $root.selectedCategory() }, style: { background: $root.getCategoryColor(cat.id) }" style="background: rgb(247, 143, 40);">
                             <!-- ko if: cat == $root.selectedCategory()--><!--/ko-->
@@ -937,7 +1212,7 @@
                             <div class="sm-box__title" data-bind="localizedName: cat.namesLocalized, shortName: cat.isExternalCategory">Wireless Charging Pa</div>
                         </div>
                     </div>
-                </div><div class="categories__container slick-slide slick-cloned" data-bind="foreach: { data: $data, as: &#39;cat&#39; }" tabindex="-1" role="option" aria-describedby="slick-slide00" style="width: 0px;" data-slick-index="8" aria-hidden="true">
+                </div><div class="categories__container slick-slide slick-cloned" data-bind="foreach: { data: $data, as: &#39;cat&#39; }" tabindex="-1" role="option" aria-describedby="slick-slide00" style="width: 864px;" data-slick-index="8" aria-hidden="true">
                     <div class="categories__item" data-bind="attr: { &#39;data-cid&#39;: id }" data-cid="a527ebc1da7043368f64a38fdc2f19e0">
                         <div class="sm-box is-active" data-animation="ripple" data-bind="css: { &#39;is-active&#39;: cat == $root.selectedCategory() }, style: { background: $root.getCategoryColor(cat.id) }" style="background: rgb(121, 121, 196);">
                             <!-- ko if: cat == $root.selectedCategory()-->
@@ -1065,7 +1340,7 @@
 
             <div class="products__slider slider slick-initialized slick-slider" data-slider="default" data-bind="foreach: { data: products, afterRender: afterProductsRender.bind($data) }">
                 
-            <div aria-live="polite" class="slick-list draggable"><div class="slick-track" role="listbox" style="opacity: 1; width: 0px; transform: translate3d(0px, 0px, 0px);"><div class="products__container slick-slide slick-current slick-active" data-bind="foreach: { data: $data, as: &#39;p&#39; }, smartClick: $parent.addProductToCart.bind($parent)" tabindex="-1" role="option" aria-describedby="slick-slide10" style="width: 0px;" data-slick-index="0" aria-hidden="false">
+            <div aria-live="polite" class="slick-list draggable"><div class="slick-track" role="listbox" style="opacity: 1; width: 864px; transform: translate3d(0px, 0px, 0px);"><div class="products__container slick-slide slick-current slick-active" data-bind="foreach: { data: $data, as: &#39;p&#39; }, smartClick: $parent.addProductToCart.bind($parent)" tabindex="-1" role="option" aria-describedby="slick-slide10" style="width: 864px;" data-slick-index="0" aria-hidden="false">
                     <!-- ko template: { name: $root.getProductTemplate(p) } -->
                 <div class="products__item-alt">
                     <div class="item-alt" data-bind="smartClick: $parents[1].addToCart.bind($parents[1])">
@@ -1184,14 +1459,14 @@
     <!-- ko if: navigationPanel() -->
     <header class="main-header" data-bind="with: router.activeItem()">
 
-        <button class="main-header__back btn-back" data-bind="visible: $data.cancel &amp;&amp; ($data.cancel.hidden ? !$data.cancel.hidden() : true) , smartClick: $data.cancel">
+        <button class="main-header__back btn-back" data-bind="visible: $data.cancel &amp;&amp; ($data.cancel.hidden ? !$data.cancel.hidden() : true) , smartClick: $data.cancel" style="display: none;">
             <i class="icon icon-back btn-back__icon"></i>
             <span class="btn-back__title" data-bind="local: &#39;commonMessages.back&#39;">Back</span>
         </button>
 
         <div class="main-header__container main-header__container_full" data-bind="visible: $data.__moduleId__ !== &#39;viewmodels/cart&#39; &amp;&amp; $data.__moduleId__ !== &#39;viewmodels/login&#39;,
-                        css: { &#39;main-header_simple-search&#39;: $data.__moduleId__ === &#39;viewmodels/transactions&#39; || $data.__moduleId__ === &#39;viewmodels/ordersTips&#39;  }">
-            <h2 class="title-xlg main-header__title" data-bind="local: $root.title()">Certificates</h2>
+                        css: { &#39;main-header_simple-search&#39;: $data.__moduleId__ === &#39;viewmodels/transactions&#39; || $data.__moduleId__ === &#39;viewmodels/ordersTips&#39;  }" style="display: none;">
+            <h2 class="title-xlg main-header__title" data-bind="local: $root.title()">Shopping Cart</h2>
 
             <div class="main-header__searchbox main-header__searchbox_right" data-bind="visible: $data.__moduleId__ === &#39;viewmodels/transactions&#39;" style="display: none;">
                 <div class="search" data-modal="search">
@@ -1220,21 +1495,38 @@
             </div>
         </div>
 
-        <!--ko with: $data.searchproduct--><!--/ko-->
+        <!--ko with: $data.searchproduct-->
+        <div class="search-dropdown" data-bind="css: { &#39;is-open&#39;: $data &amp;&amp; $data.isOpen() }" style="display: none;">
+            <i class="search-dropdown__arrow"></i>
+            <div class="search-dropdown__container">
+                <div class="search-dropdown__body" data-scrollbar="default">
+                    <ul class="search-dropdown__list" id="fat-product-search-results" data-bind="pagedForeach: { options: paginationOptions }" data-page-current="0"><li class="search-dropdown__item no-results-control"><span>No results</span></li></ul>
+                </div>
+                <div id="searchDropdownMore"><button class="btn btn_block pagination" data-animation="ripple"></button></div>
+            </div>
+        </div>
+        <!--/ko-->
 
-        <div class="main-header__container" data-bind="visible: $data.__moduleId__ === &#39;viewmodels/cart&#39;, css: { &#39;tabs-header&#39;: ko.isPoynt &amp;&amp; $data.tabs &amp;&amp; tabs().hidden() }" style="display: none;">
+        <div class="main-header__container" data-bind="visible: $data.__moduleId__ === &#39;viewmodels/cart&#39;, css: { &#39;tabs-header&#39;: ko.isPoynt &amp;&amp; $data.tabs &amp;&amp; tabs().hidden() }">
             <button class="main-header__back btn-back" data-bind="visible: $data.tabs &amp;&amp; tabs().hidden(), smartClick: $data.cancelEditProduct" style="display: none;">
                 <i class="icon icon-back btn-back__icon"></i>
                 <span class="btn-back__title" data-bind="local: &#39;commonMessages.cancel&#39;">Cancel</span>
             </button>
-            <div class="main-header__searchbox" data-bind="visible: $data.tabs &amp;&amp; !tabs().hidden()" style="display: none;">
-                <div class="search" data-modal="search" data-bind="with: $data.searchproduct"></div>
+            <div class="main-header__searchbox" data-bind="visible: $data.tabs &amp;&amp; !tabs().hidden()">
+                <div class="search" data-modal="search" data-bind="with: $data.searchproduct">
+                    <div class="search__field" data-modal="container">
+                        <input type="text" class="search__input" id="fat-search-products" data-bind="local: &#39;searchItem&#39;, localAttr: &#39;placeholder&#39;, value: searchText, valueUpdate: &#39;input&#39;" placeholder="Search by item name, serial #, UPC">
+                        <div class="search__controls">
+                            <span class="search__button"><i class="icon icon-search"></i></span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="main-header__sidebar" data-bind="visible: $data.__moduleId__ === &#39;viewmodels/cart&#39;" style="display: none;">
+        <div class="main-header__sidebar" data-bind="visible: $data.__moduleId__ === &#39;viewmodels/cart&#39;">
             <button class="main-header__menu icon icon-menu" data-bind="smartClick: $data.showNavigationPanel"></button>
-            <button type="button" class="main-header__delete btn-icon icon icon-delete" id="fat-delete-all-items-from-cart" data-bind="disable: $data.cart &amp;&amp; (($data.tabs &amp;&amp; $data.tabs().hidden()) || ko.unwrap($data.cart.isEmpty)), smartClick: $data.clearClick"></button>
+            <button type="button" class="main-header__delete btn-icon icon icon-delete" id="fat-delete-all-items-from-cart" data-bind="disable: $data.cart &amp;&amp; (($data.tabs &amp;&amp; $data.tabs().hidden()) || ko.unwrap($data.cart.isEmpty)), smartClick: $data.clearClick" disabled=""></button>
 
             <div class="main-header__toolbar ">
                 <div class="toolbar">
@@ -1244,27 +1536,526 @@
                                 <div class="dropdown dropdown_header dropdown-menu_no-scroll" data-bind="smartClick: openOrderTypes">
                                     <div class="dropdown__header" data-animation="ripple">
                                         <i class="dropdown__arrow icon icon-expand"></i>
-                                        <div class="dropdown__value" id="fat-open-order-type" data-bind="text: $data.orderType &amp;&amp; ko.bindingHandlers.lngProvider.getOption(orderType())"></div>
+                                        <div class="dropdown__value" id="fat-open-order-type" data-bind="text: $data.orderType &amp;&amp; ko.bindingHandlers.lngProvider.getOption(orderType())">Quick Sale</div>
                                     </div>
                                     <div class="dropdown-menu" data-bind="css: { &#39;is-open&#39; : $data.orderTypes &amp;&amp; isOrderTypesOpen() }">
-                                        <ul class="dropdown-menu__list" data-bind="foreach: $data.orderTypes"></ul>
+                                        <ul class="dropdown-menu__list" data-bind="foreach: $data.orderTypes">
+                                            <li class="dropdown-menu__item is-active" data-animation="ripple" data-bind="localizedName: namesLocalized, css: { &#39;is-active&#39;: $data.code === $parent.orderType().code }, smartClick: $parent.selectOrderType">Quick Sale</li>
+                                        
+                                            <li class="dropdown-menu__item" data-animation="ripple" data-bind="localizedName: namesLocalized, css: { &#39;is-active&#39;: $data.code === $parent.orderType().code }, smartClick: $parent.selectOrderType">Dine In</li>
+                                        
+                                            <li class="dropdown-menu__item" data-animation="ripple" data-bind="localizedName: namesLocalized, css: { &#39;is-active&#39;: $data.code === $parent.orderType().code }, smartClick: $parent.selectOrderType">Take Out</li>
+                                        
+                                            <li class="dropdown-menu__item" data-animation="ripple" data-bind="localizedName: namesLocalized, css: { &#39;is-active&#39;: $data.code === $parent.orderType().code }, smartClick: $parent.selectOrderType">Drive Thru</li>
+                                        
+                                            <li class="dropdown-menu__item" data-animation="ripple" data-bind="localizedName: namesLocalized, css: { &#39;is-active&#39;: $data.code === $parent.orderType().code }, smartClick: $parent.selectOrderType">Delivery</li>
+                                        </ul>
                                     </div>
                                     <button type="button" class="overlay" data-bind="css: { &#39;is-open&#39; : $data.orderTypes &amp;&amp; isOrderTypesOpen() }"></button>
                                 </div>
 
                             </div>
-                            <div class="toolbar__col" data-bind="if: $data.customers"></div>
+                            <div class="toolbar__col" data-bind="if: $data.customers">
+                                <div id="customerList" data-bind="compose: { model: $data.customers, view: &#39;views/customers.html&#39;, activationData: $data.customersActivationData }"><div class="dropdown dropdown_header dropdown_fixed" data-bind="smartClick: $data.show" data-view="views/customers" data-active-view="true" style="">
+    <div class="dropdown__header" data-animation="ripple">
+        <!--data-dropdown-open="customer"-->
+        <i class="dropdown__arrow icon icon-expand"></i>
+        <div class="dropdown__value" id="fat-select-customer-btn">
+            <span data-bind="text: $data.fullName(selectedCustomer())">Stone Agustin</span>
+        </div>
+    </div>
+    <div class="dropdown-menu dropdown-menu_icons" data-bind="css: { &#39;is-open&#39;: visible }">
+        <div class="dropdown-menu__search sm-search">
+            <div class="sm-search__field">
+                <input type="text" class="sm-search__input" id="customers_inp_search" data-bind="value: searchText, valueUpdate: &#39;input&#39;, local: &#39;customers.search&#39;, localAttr: &#39;placeholder&#39;" placeholder="Search for customer">
+                <button class="sm-search__btn" data-animation="ripple">
+                    <i class="icon icon-search"></i>
+                </button>
+            </div>
+        </div>
+        <ul class="dropdown-menu__list" id="customersList" data-bind="foreach: customers.items, event: { scroll: customers.scrolled }" data-scrollbar="default">
+            <li class="dropdown-menu__item dropdown-menu__item_special" data-animation="ripple" data-bind="smartClick: $parent.select, css: { &#39;is-active&#39;: false, &#39;dropdown-menu__item_special&#39;: id === $parent.walkInId }, attr: { &#39;data-id&#39;: $data.id }" data-id="06c299f69a1148908ffd6f9cc836b049">
+                <span data-bind="text: $parent.fullName($data)">Walk-In</span>
+                <!-- ko if: $data.address &&  ($data.address.phone || $data.address.mobilePhone) --><!-- /ko -->
+                <i class="icon icon-next" data-bind="permission: &#39;PosCustomerManagement&#39;, visible: id != $parent.walkInId, smartClick: $parent.edit" style="display: none;"></i>
+
+                <!--<i class="icon icon-walkin" data-bind="visible: id === $parent.walkInId"></i>-->
+            </li>
+        
+            <li class="dropdown-menu__item" data-animation="ripple" data-bind="smartClick: $parent.select, css: { &#39;is-active&#39;: false, &#39;dropdown-menu__item_special&#39;: id === $parent.walkInId }, attr: { &#39;data-id&#39;: $data.id }" data-id="b27341321ac56df7a8b8573661a5d2d2">
+                <span data-bind="text: $parent.fullName($data)">agagfsg agaga</span>
+                <!-- ko if: $data.address &&  ($data.address.phone || $data.address.mobilePhone) --><!-- /ko -->
+                <i class="icon icon-next" data-bind="permission: &#39;PosCustomerManagement&#39;, visible: id != $parent.walkInId, smartClick: $parent.edit"></i>
+
+                <!--<i class="icon icon-walkin" data-bind="visible: id === $parent.walkInId"></i>-->
+            </li>
+        
+            <li class="dropdown-menu__item" data-animation="ripple" data-bind="smartClick: $parent.select, css: { &#39;is-active&#39;: false, &#39;dropdown-menu__item_special&#39;: id === $parent.walkInId }, attr: { &#39;data-id&#39;: $data.id }" data-id="5857809d7a28465a8505a568e201bf6c">
+                <span data-bind="text: $parent.fullName($data)">Stone Agustin</span>
+                <!-- ko if: $data.address &&  ($data.address.phone || $data.address.mobilePhone) -->
+                <div class="contact-box">
+                    <!-- ko if: $data.address.phone-->
+                    <span data-bind="phone: $data.address.phone">+1 (231) 476-8754</span>
+                    <!-- /ko -->
+
+                    <!-- ko if:  $data.address.phone && $data.address.mobilePhone --><!-- /ko-->
+
+                    <!-- ko if: $data.address.mobilePhone --><!-- /ko -->
+                </div>
+                <!-- /ko -->
+                <i class="icon icon-next" data-bind="permission: &#39;PosCustomerManagement&#39;, visible: id != $parent.walkInId, smartClick: $parent.edit"></i>
+
+                <!--<i class="icon icon-walkin" data-bind="visible: id === $parent.walkInId"></i>-->
+            </li>
+        
+            <li class="dropdown-menu__item" data-animation="ripple" data-bind="smartClick: $parent.select, css: { &#39;is-active&#39;: false, &#39;dropdown-menu__item_special&#39;: id === $parent.walkInId }, attr: { &#39;data-id&#39;: $data.id }" data-id="8647a28de6f84d0d94bc1df7be813dfb">
+                <span data-bind="text: $parent.fullName($data)">Meneses Albert</span>
+                <!-- ko if: $data.address &&  ($data.address.phone || $data.address.mobilePhone) -->
+                <div class="contact-box">
+                    <!-- ko if: $data.address.phone-->
+                    <span data-bind="phone: $data.address.phone">+1 (231) 476-6475</span>
+                    <!-- /ko -->
+
+                    <!-- ko if:  $data.address.phone && $data.address.mobilePhone --><!-- /ko-->
+
+                    <!-- ko if: $data.address.mobilePhone --><!-- /ko -->
+                </div>
+                <!-- /ko -->
+                <i class="icon icon-next" data-bind="permission: &#39;PosCustomerManagement&#39;, visible: id != $parent.walkInId, smartClick: $parent.edit"></i>
+
+                <!--<i class="icon icon-walkin" data-bind="visible: id === $parent.walkInId"></i>-->
+            </li>
+        
+            <li class="dropdown-menu__item" data-animation="ripple" data-bind="smartClick: $parent.select, css: { &#39;is-active&#39;: false, &#39;dropdown-menu__item_special&#39;: id === $parent.walkInId }, attr: { &#39;data-id&#39;: $data.id }" data-id="074694659f5b4f468cde5c09f0347af0">
+                <span data-bind="text: $parent.fullName($data)">Nelson Anthony</span>
+                <!-- ko if: $data.address &&  ($data.address.phone || $data.address.mobilePhone) -->
+                <div class="contact-box">
+                    <!-- ko if: $data.address.phone-->
+                    <span data-bind="phone: $data.address.phone">+1 (231) 476-5334</span>
+                    <!-- /ko -->
+
+                    <!-- ko if:  $data.address.phone && $data.address.mobilePhone --><!-- /ko-->
+
+                    <!-- ko if: $data.address.mobilePhone --><!-- /ko -->
+                </div>
+                <!-- /ko -->
+                <i class="icon icon-next" data-bind="permission: &#39;PosCustomerManagement&#39;, visible: id != $parent.walkInId, smartClick: $parent.edit"></i>
+
+                <!--<i class="icon icon-walkin" data-bind="visible: id === $parent.walkInId"></i>-->
+            </li>
+        
+            <li class="dropdown-menu__item" data-animation="ripple" data-bind="smartClick: $parent.select, css: { &#39;is-active&#39;: false, &#39;dropdown-menu__item_special&#39;: id === $parent.walkInId }, attr: { &#39;data-id&#39;: $data.id }" data-id="a2c6f63ad9b54ce2b4f33d14ce938167">
+                <span data-bind="text: $parent.fullName($data)">Varela Bianca</span>
+                <!-- ko if: $data.address &&  ($data.address.phone || $data.address.mobilePhone) -->
+                <div class="contact-box">
+                    <!-- ko if: $data.address.phone-->
+                    <span data-bind="phone: $data.address.phone">+1 (231) 476-5436</span>
+                    <!-- /ko -->
+
+                    <!-- ko if:  $data.address.phone && $data.address.mobilePhone --><!-- /ko-->
+
+                    <!-- ko if: $data.address.mobilePhone --><!-- /ko -->
+                </div>
+                <!-- /ko -->
+                <i class="icon icon-next" data-bind="permission: &#39;PosCustomerManagement&#39;, visible: id != $parent.walkInId, smartClick: $parent.edit"></i>
+
+                <!--<i class="icon icon-walkin" data-bind="visible: id === $parent.walkInId"></i>-->
+            </li>
+        
+            <li class="dropdown-menu__item" data-animation="ripple" data-bind="smartClick: $parent.select, css: { &#39;is-active&#39;: false, &#39;dropdown-menu__item_special&#39;: id === $parent.walkInId }, attr: { &#39;data-id&#39;: $data.id }" data-id="b2d1dad7605c46ab984b98a3dd71519e">
+                <span data-bind="text: $parent.fullName($data)">Alicia Burchett</span>
+                <!-- ko if: $data.address &&  ($data.address.phone || $data.address.mobilePhone) -->
+                <div class="contact-box">
+                    <!-- ko if: $data.address.phone-->
+                    <span data-bind="phone: $data.address.phone">+1 (231) 476-1234</span>
+                    <!-- /ko -->
+
+                    <!-- ko if:  $data.address.phone && $data.address.mobilePhone --><!-- /ko-->
+
+                    <!-- ko if: $data.address.mobilePhone --><!-- /ko -->
+                </div>
+                <!-- /ko -->
+                <i class="icon icon-next" data-bind="permission: &#39;PosCustomerManagement&#39;, visible: id != $parent.walkInId, smartClick: $parent.edit"></i>
+
+                <!--<i class="icon icon-walkin" data-bind="visible: id === $parent.walkInId"></i>-->
+            </li>
+        
+            <li class="dropdown-menu__item" data-animation="ripple" data-bind="smartClick: $parent.select, css: { &#39;is-active&#39;: false, &#39;dropdown-menu__item_special&#39;: id === $parent.walkInId }, attr: { &#39;data-id&#39;: $data.id }" data-id="d9a9af848b464fef89a6f10a0bd91383">
+                <span data-bind="text: $parent.fullName($data)">Ybarra Clint</span>
+                <!-- ko if: $data.address &&  ($data.address.phone || $data.address.mobilePhone) -->
+                <div class="contact-box">
+                    <!-- ko if: $data.address.phone-->
+                    <span data-bind="phone: $data.address.phone">+1 (231) 476-5626</span>
+                    <!-- /ko -->
+
+                    <!-- ko if:  $data.address.phone && $data.address.mobilePhone --><!-- /ko-->
+
+                    <!-- ko if: $data.address.mobilePhone --><!-- /ko -->
+                </div>
+                <!-- /ko -->
+                <i class="icon icon-next" data-bind="permission: &#39;PosCustomerManagement&#39;, visible: id != $parent.walkInId, smartClick: $parent.edit"></i>
+
+                <!--<i class="icon icon-walkin" data-bind="visible: id === $parent.walkInId"></i>-->
+            </li>
+        
+            <li class="dropdown-menu__item" data-animation="ripple" data-bind="smartClick: $parent.select, css: { &#39;is-active&#39;: false, &#39;dropdown-menu__item_special&#39;: id === $parent.walkInId }, attr: { &#39;data-id&#39;: $data.id }" data-id="bb174bb5fcb34d0e825e07f6ccfd1bb9">
+                <span data-bind="text: $parent.fullName($data)">Clarke Darren</span>
+                <!-- ko if: $data.address &&  ($data.address.phone || $data.address.mobilePhone) -->
+                <div class="contact-box">
+                    <!-- ko if: $data.address.phone-->
+                    <span data-bind="phone: $data.address.phone">+1 (231) 476-3456</span>
+                    <!-- /ko -->
+
+                    <!-- ko if:  $data.address.phone && $data.address.mobilePhone --><!-- /ko-->
+
+                    <!-- ko if: $data.address.mobilePhone --><!-- /ko -->
+                </div>
+                <!-- /ko -->
+                <i class="icon icon-next" data-bind="permission: &#39;PosCustomerManagement&#39;, visible: id != $parent.walkInId, smartClick: $parent.edit"></i>
+
+                <!--<i class="icon icon-walkin" data-bind="visible: id === $parent.walkInId"></i>-->
+            </li>
+        
+            <li class="dropdown-menu__item" data-animation="ripple" data-bind="smartClick: $parent.select, css: { &#39;is-active&#39;: false, &#39;dropdown-menu__item_special&#39;: id === $parent.walkInId }, attr: { &#39;data-id&#39;: $data.id }" data-id="858584c89f9f42d291a87a1f7f0be805">
+                <span data-bind="text: $parent.fullName($data)">Rivera Jesus</span>
+                <!-- ko if: $data.address &&  ($data.address.phone || $data.address.mobilePhone) -->
+                <div class="contact-box">
+                    <!-- ko if: $data.address.phone-->
+                    <span data-bind="phone: $data.address.phone">+1 (231) 476-4356</span>
+                    <!-- /ko -->
+
+                    <!-- ko if:  $data.address.phone && $data.address.mobilePhone --><!-- /ko-->
+
+                    <!-- ko if: $data.address.mobilePhone --><!-- /ko -->
+                </div>
+                <!-- /ko -->
+                <i class="icon icon-next" data-bind="permission: &#39;PosCustomerManagement&#39;, visible: id != $parent.walkInId, smartClick: $parent.edit"></i>
+
+                <!--<i class="icon icon-walkin" data-bind="visible: id === $parent.walkInId"></i>-->
+            </li>
+        
+            <li class="dropdown-menu__item" data-animation="ripple" data-bind="smartClick: $parent.select, css: { &#39;is-active&#39;: false, &#39;dropdown-menu__item_special&#39;: id === $parent.walkInId }, attr: { &#39;data-id&#39;: $data.id }" data-id="fe9e6594aefc4de580888800979b9192">
+                <span data-bind="text: $parent.fullName($data)">League Karina</span>
+                <!-- ko if: $data.address &&  ($data.address.phone || $data.address.mobilePhone) -->
+                <div class="contact-box">
+                    <!-- ko if: $data.address.phone-->
+                    <span data-bind="phone: $data.address.phone">+1 (231) 476-3456</span>
+                    <!-- /ko -->
+
+                    <!-- ko if:  $data.address.phone && $data.address.mobilePhone --><!-- /ko-->
+
+                    <!-- ko if: $data.address.mobilePhone --><!-- /ko -->
+                </div>
+                <!-- /ko -->
+                <i class="icon icon-next" data-bind="permission: &#39;PosCustomerManagement&#39;, visible: id != $parent.walkInId, smartClick: $parent.edit"></i>
+
+                <!--<i class="icon icon-walkin" data-bind="visible: id === $parent.walkInId"></i>-->
+            </li>
+        
+            <li class="dropdown-menu__item" data-animation="ripple" data-bind="smartClick: $parent.select, css: { &#39;is-active&#39;: false, &#39;dropdown-menu__item_special&#39;: id === $parent.walkInId }, attr: { &#39;data-id&#39;: $data.id }" data-id="e03a37a12d2248f58f7723ba3576d3e2">
+                <span data-bind="text: $parent.fullName($data)">Ward Kayla</span>
+                <!-- ko if: $data.address &&  ($data.address.phone || $data.address.mobilePhone) -->
+                <div class="contact-box">
+                    <!-- ko if: $data.address.phone-->
+                    <span data-bind="phone: $data.address.phone">+1 (231) 476-7444</span>
+                    <!-- /ko -->
+
+                    <!-- ko if:  $data.address.phone && $data.address.mobilePhone --><!-- /ko-->
+
+                    <!-- ko if: $data.address.mobilePhone --><!-- /ko -->
+                </div>
+                <!-- /ko -->
+                <i class="icon icon-next" data-bind="permission: &#39;PosCustomerManagement&#39;, visible: id != $parent.walkInId, smartClick: $parent.edit"></i>
+
+                <!--<i class="icon icon-walkin" data-bind="visible: id === $parent.walkInId"></i>-->
+            </li>
+        
+            <li class="dropdown-menu__item" data-animation="ripple" data-bind="smartClick: $parent.select, css: { &#39;is-active&#39;: false, &#39;dropdown-menu__item_special&#39;: id === $parent.walkInId }, attr: { &#39;data-id&#39;: $data.id }" data-id="ff1fd688480d43a49c99719702938ad6">
+                <span data-bind="text: $parent.fullName($data)">Contreras Keith</span>
+                <!-- ko if: $data.address &&  ($data.address.phone || $data.address.mobilePhone) -->
+                <div class="contact-box">
+                    <!-- ko if: $data.address.phone-->
+                    <span data-bind="phone: $data.address.phone">+1 (231) 476-2343</span>
+                    <!-- /ko -->
+
+                    <!-- ko if:  $data.address.phone && $data.address.mobilePhone --><!-- /ko-->
+
+                    <!-- ko if: $data.address.mobilePhone --><!-- /ko -->
+                </div>
+                <!-- /ko -->
+                <i class="icon icon-next" data-bind="permission: &#39;PosCustomerManagement&#39;, visible: id != $parent.walkInId, smartClick: $parent.edit"></i>
+
+                <!--<i class="icon icon-walkin" data-bind="visible: id === $parent.walkInId"></i>-->
+            </li>
+        
+            <li class="dropdown-menu__item" data-animation="ripple" data-bind="smartClick: $parent.select, css: { &#39;is-active&#39;: false, &#39;dropdown-menu__item_special&#39;: id === $parent.walkInId }, attr: { &#39;data-id&#39;: $data.id }" data-id="ad0b55d4a0154fa3ad6d3492011e1999">
+                <span data-bind="text: $parent.fullName($data)">Pena Lance</span>
+                <!-- ko if: $data.address &&  ($data.address.phone || $data.address.mobilePhone) -->
+                <div class="contact-box">
+                    <!-- ko if: $data.address.phone-->
+                    <span data-bind="phone: $data.address.phone">+1 (231) 476-8765</span>
+                    <!-- /ko -->
+
+                    <!-- ko if:  $data.address.phone && $data.address.mobilePhone --><!-- /ko-->
+
+                    <!-- ko if: $data.address.mobilePhone --><!-- /ko -->
+                </div>
+                <!-- /ko -->
+                <i class="icon icon-next" data-bind="permission: &#39;PosCustomerManagement&#39;, visible: id != $parent.walkInId, smartClick: $parent.edit"></i>
+
+                <!--<i class="icon icon-walkin" data-bind="visible: id === $parent.walkInId"></i>-->
+            </li>
+        
+            <li class="dropdown-menu__item" data-animation="ripple" data-bind="smartClick: $parent.select, css: { &#39;is-active&#39;: false, &#39;dropdown-menu__item_special&#39;: id === $parent.walkInId }, attr: { &#39;data-id&#39;: $data.id }" data-id="815fc41cd9ca43aa8c2ce0f4f1ea53d2">
+                <span data-bind="text: $parent.fullName($data)">Elliott Lizbeth</span>
+                <!-- ko if: $data.address &&  ($data.address.phone || $data.address.mobilePhone) -->
+                <div class="contact-box">
+                    <!-- ko if: $data.address.phone-->
+                    <span data-bind="phone: $data.address.phone">+1 (231) 476-9587</span>
+                    <!-- /ko -->
+
+                    <!-- ko if:  $data.address.phone && $data.address.mobilePhone --><!-- /ko-->
+
+                    <!-- ko if: $data.address.mobilePhone --><!-- /ko -->
+                </div>
+                <!-- /ko -->
+                <i class="icon icon-next" data-bind="permission: &#39;PosCustomerManagement&#39;, visible: id != $parent.walkInId, smartClick: $parent.edit"></i>
+
+                <!--<i class="icon icon-walkin" data-bind="visible: id === $parent.walkInId"></i>-->
+            </li>
+        
+            <li class="dropdown-menu__item" data-animation="ripple" data-bind="smartClick: $parent.select, css: { &#39;is-active&#39;: false, &#39;dropdown-menu__item_special&#39;: id === $parent.walkInId }, attr: { &#39;data-id&#39;: $data.id }" data-id="6ff4541e195f46609145376efbdbd029">
+                <span data-bind="text: $parent.fullName($data)">McHugh Luciano</span>
+                <!-- ko if: $data.address &&  ($data.address.phone || $data.address.mobilePhone) -->
+                <div class="contact-box">
+                    <!-- ko if: $data.address.phone-->
+                    <span data-bind="phone: $data.address.phone">+1 (231) 476-8675</span>
+                    <!-- /ko -->
+
+                    <!-- ko if:  $data.address.phone && $data.address.mobilePhone --><!-- /ko-->
+
+                    <!-- ko if: $data.address.mobilePhone --><!-- /ko -->
+                </div>
+                <!-- /ko -->
+                <i class="icon icon-next" data-bind="permission: &#39;PosCustomerManagement&#39;, visible: id != $parent.walkInId, smartClick: $parent.edit"></i>
+
+                <!--<i class="icon icon-walkin" data-bind="visible: id === $parent.walkInId"></i>-->
+            </li>
+        
+            <li class="dropdown-menu__item" data-animation="ripple" data-bind="smartClick: $parent.select, css: { &#39;is-active&#39;: false, &#39;dropdown-menu__item_special&#39;: id === $parent.walkInId }, attr: { &#39;data-id&#39;: $data.id }" data-id="ec7e5255bcb246fba40c1976ecdfc9dd">
+                <span data-bind="text: $parent.fullName($data)">Guerrero Martha</span>
+                <!-- ko if: $data.address &&  ($data.address.phone || $data.address.mobilePhone) -->
+                <div class="contact-box">
+                    <!-- ko if: $data.address.phone-->
+                    <span data-bind="phone: $data.address.phone">+1 (231) 476-2344</span>
+                    <!-- /ko -->
+
+                    <!-- ko if:  $data.address.phone && $data.address.mobilePhone --><!-- /ko-->
+
+                    <!-- ko if: $data.address.mobilePhone --><!-- /ko -->
+                </div>
+                <!-- /ko -->
+                <i class="icon icon-next" data-bind="permission: &#39;PosCustomerManagement&#39;, visible: id != $parent.walkInId, smartClick: $parent.edit"></i>
+
+                <!--<i class="icon icon-walkin" data-bind="visible: id === $parent.walkInId"></i>-->
+            </li>
+        
+            <li class="dropdown-menu__item" data-animation="ripple" data-bind="smartClick: $parent.select, css: { &#39;is-active&#39;: false, &#39;dropdown-menu__item_special&#39;: id === $parent.walkInId }, attr: { &#39;data-id&#39;: $data.id }" data-id="43c7e12485be49e7aa85ddb1333ebf27">
+                <span data-bind="text: $parent.fullName($data)">Lumbreras Matt</span>
+                <!-- ko if: $data.address &&  ($data.address.phone || $data.address.mobilePhone) -->
+                <div class="contact-box">
+                    <!-- ko if: $data.address.phone-->
+                    <span data-bind="phone: $data.address.phone">+1 (231) 476-5678</span>
+                    <!-- /ko -->
+
+                    <!-- ko if:  $data.address.phone && $data.address.mobilePhone --><!-- /ko-->
+
+                    <!-- ko if: $data.address.mobilePhone --><!-- /ko -->
+                </div>
+                <!-- /ko -->
+                <i class="icon icon-next" data-bind="permission: &#39;PosCustomerManagement&#39;, visible: id != $parent.walkInId, smartClick: $parent.edit"></i>
+
+                <!--<i class="icon icon-walkin" data-bind="visible: id === $parent.walkInId"></i>-->
+            </li>
+        
+            <li class="dropdown-menu__item" data-animation="ripple" data-bind="smartClick: $parent.select, css: { &#39;is-active&#39;: false, &#39;dropdown-menu__item_special&#39;: id === $parent.walkInId }, attr: { &#39;data-id&#39;: $data.id }" data-id="5078c4fec1694519ab13b5bf69208264">
+                <span data-bind="text: $parent.fullName($data)">Garreth Mykala</span>
+                <!-- ko if: $data.address &&  ($data.address.phone || $data.address.mobilePhone) -->
+                <div class="contact-box">
+                    <!-- ko if: $data.address.phone-->
+                    <span data-bind="phone: $data.address.phone">+1 (231) 476-2323</span>
+                    <!-- /ko -->
+
+                    <!-- ko if:  $data.address.phone && $data.address.mobilePhone --><!-- /ko-->
+
+                    <!-- ko if: $data.address.mobilePhone --><!-- /ko -->
+                </div>
+                <!-- /ko -->
+                <i class="icon icon-next" data-bind="permission: &#39;PosCustomerManagement&#39;, visible: id != $parent.walkInId, smartClick: $parent.edit"></i>
+
+                <!--<i class="icon icon-walkin" data-bind="visible: id === $parent.walkInId"></i>-->
+            </li>
+        
+            <li class="dropdown-menu__item" data-animation="ripple" data-bind="smartClick: $parent.select, css: { &#39;is-active&#39;: false, &#39;dropdown-menu__item_special&#39;: id === $parent.walkInId }, attr: { &#39;data-id&#39;: $data.id }" data-id="26b7f297fc2e4bd5b04f130b74299ffe">
+                <span data-bind="text: $parent.fullName($data)">Garcia Ryan</span>
+                <!-- ko if: $data.address &&  ($data.address.phone || $data.address.mobilePhone) -->
+                <div class="contact-box">
+                    <!-- ko if: $data.address.phone-->
+                    <span data-bind="phone: $data.address.phone">+1 (231) 476-8653</span>
+                    <!-- /ko -->
+
+                    <!-- ko if:  $data.address.phone && $data.address.mobilePhone --><!-- /ko-->
+
+                    <!-- ko if: $data.address.mobilePhone --><!-- /ko -->
+                </div>
+                <!-- /ko -->
+                <i class="icon icon-next" data-bind="permission: &#39;PosCustomerManagement&#39;, visible: id != $parent.walkInId, smartClick: $parent.edit"></i>
+
+                <!--<i class="icon icon-walkin" data-bind="visible: id === $parent.walkInId"></i>-->
+            </li>
+        
+            <li class="dropdown-menu__item" data-animation="ripple" data-bind="smartClick: $parent.select, css: { &#39;is-active&#39;: false, &#39;dropdown-menu__item_special&#39;: id === $parent.walkInId }, attr: { &#39;data-id&#39;: $data.id }" data-id="37162a3f6d984e768a1d90daa6e06072">
+                <span data-bind="text: $parent.fullName($data)">Duran Sammy</span>
+                <!-- ko if: $data.address &&  ($data.address.phone || $data.address.mobilePhone) -->
+                <div class="contact-box">
+                    <!-- ko if: $data.address.phone-->
+                    <span data-bind="phone: $data.address.phone">+1 (231) 476-7845</span>
+                    <!-- /ko -->
+
+                    <!-- ko if:  $data.address.phone && $data.address.mobilePhone --><!-- /ko-->
+
+                    <!-- ko if: $data.address.mobilePhone --><!-- /ko -->
+                </div>
+                <!-- /ko -->
+                <i class="icon icon-next" data-bind="permission: &#39;PosCustomerManagement&#39;, visible: id != $parent.walkInId, smartClick: $parent.edit"></i>
+
+                <!--<i class="icon icon-walkin" data-bind="visible: id === $parent.walkInId"></i>-->
+            </li>
+        
+            <li class="dropdown-menu__item" data-animation="ripple" data-bind="smartClick: $parent.select, css: { &#39;is-active&#39;: false, &#39;dropdown-menu__item_special&#39;: id === $parent.walkInId }, attr: { &#39;data-id&#39;: $data.id }" data-id="44204023a4c64b0badefad2141858602">
+                <span data-bind="text: $parent.fullName($data)">John Smith</span>
+                <!-- ko if: $data.address &&  ($data.address.phone || $data.address.mobilePhone) -->
+                <div class="contact-box">
+                    <!-- ko if: $data.address.phone-->
+                    <span data-bind="phone: $data.address.phone">+1 (171) 476-9178</span>
+                    <!-- /ko -->
+
+                    <!-- ko if:  $data.address.phone && $data.address.mobilePhone --><!-- /ko-->
+
+                    <!-- ko if: $data.address.mobilePhone --><!-- /ko -->
+                </div>
+                <!-- /ko -->
+                <i class="icon icon-next" data-bind="permission: &#39;PosCustomerManagement&#39;, visible: id != $parent.walkInId, smartClick: $parent.edit"></i>
+
+                <!--<i class="icon icon-walkin" data-bind="visible: id === $parent.walkInId"></i>-->
+            </li>
+        
+            <li class="dropdown-menu__item" data-animation="ripple" data-bind="smartClick: $parent.select, css: { &#39;is-active&#39;: false, &#39;dropdown-menu__item_special&#39;: id === $parent.walkInId }, attr: { &#39;data-id&#39;: $data.id }" data-id="4e3f6555178d4e0f9e09f7bd9a79a55a">
+                <span data-bind="text: $parent.fullName($data)">ITV SOATEST</span>
+                <!-- ko if: $data.address &&  ($data.address.phone || $data.address.mobilePhone) -->
+                <div class="contact-box">
+                    <!-- ko if: $data.address.phone-->
+                    <span data-bind="phone: $data.address.phone">(214) 694-6237</span>
+                    <!-- /ko -->
+
+                    <!-- ko if:  $data.address.phone && $data.address.mobilePhone --><!-- /ko-->
+
+                    <!-- ko if: $data.address.mobilePhone --><!-- /ko -->
+                </div>
+                <!-- /ko -->
+                <i class="icon icon-next" data-bind="permission: &#39;PosCustomerManagement&#39;, visible: id != $parent.walkInId, smartClick: $parent.edit"></i>
+
+                <!--<i class="icon icon-walkin" data-bind="visible: id === $parent.walkInId"></i>-->
+            </li>
+        
+            <li class="dropdown-menu__item" data-animation="ripple" data-bind="smartClick: $parent.select, css: { &#39;is-active&#39;: false, &#39;dropdown-menu__item_special&#39;: id === $parent.walkInId }, attr: { &#39;data-id&#39;: $data.id }" data-id="140167c242d34a9e85c2ad36d77a6a50">
+                <span data-bind="text: $parent.fullName($data)">test00 SOATEST00</span>
+                <!-- ko if: $data.address &&  ($data.address.phone || $data.address.mobilePhone) -->
+                <div class="contact-box">
+                    <!-- ko if: $data.address.phone-->
+                    <span data-bind="phone: $data.address.phone">(214) 694-6200</span>
+                    <!-- /ko -->
+
+                    <!-- ko if:  $data.address.phone && $data.address.mobilePhone --><!-- /ko-->
+
+                    <!-- ko if: $data.address.mobilePhone --><!-- /ko -->
+                </div>
+                <!-- /ko -->
+                <i class="icon icon-next" data-bind="permission: &#39;PosCustomerManagement&#39;, visible: id != $parent.walkInId, smartClick: $parent.edit"></i>
+
+                <!--<i class="icon icon-walkin" data-bind="visible: id === $parent.walkInId"></i>-->
+            </li>
+        
+            <li class="dropdown-menu__item" data-animation="ripple" data-bind="smartClick: $parent.select, css: { &#39;is-active&#39;: false, &#39;dropdown-menu__item_special&#39;: id === $parent.walkInId }, attr: { &#39;data-id&#39;: $data.id }" data-id="57c10bdf510547169255385cef1d877d">
+                <span data-bind="text: $parent.fullName($data)">Salcedo Stephany</span>
+                <!-- ko if: $data.address &&  ($data.address.phone || $data.address.mobilePhone) -->
+                <div class="contact-box">
+                    <!-- ko if: $data.address.phone-->
+                    <span data-bind="phone: $data.address.phone">+1 (231) 476-5675</span>
+                    <!-- /ko -->
+
+                    <!-- ko if:  $data.address.phone && $data.address.mobilePhone --><!-- /ko-->
+
+                    <!-- ko if: $data.address.mobilePhone --><!-- /ko -->
+                </div>
+                <!-- /ko -->
+                <i class="icon icon-next" data-bind="permission: &#39;PosCustomerManagement&#39;, visible: id != $parent.walkInId, smartClick: $parent.edit"></i>
+
+                <!--<i class="icon icon-walkin" data-bind="visible: id === $parent.walkInId"></i>-->
+            </li>
+        
+            <li class="dropdown-menu__item" data-animation="ripple" data-bind="smartClick: $parent.select, css: { &#39;is-active&#39;: false, &#39;dropdown-menu__item_special&#39;: id === $parent.walkInId }, attr: { &#39;data-id&#39;: $data.id }" data-id="4e679442f4473126c2433b7ba8195cf7">
+                <span data-bind="text: $parent.fullName($data)">Anna Test</span>
+                <!-- ko if: $data.address &&  ($data.address.phone || $data.address.mobilePhone) -->
+                <div class="contact-box">
+                    <!-- ko if: $data.address.phone-->
+                    <span data-bind="phone: $data.address.phone">+1 (234) 567-8978</span>
+                    <!-- /ko -->
+
+                    <!-- ko if:  $data.address.phone && $data.address.mobilePhone --><!-- /ko-->
+
+                    <!-- ko if: $data.address.mobilePhone --><!-- /ko -->
+                </div>
+                <!-- /ko -->
+                <i class="icon icon-next" data-bind="permission: &#39;PosCustomerManagement&#39;, visible: id != $parent.walkInId, smartClick: $parent.edit"></i>
+
+                <!--<i class="icon icon-walkin" data-bind="visible: id === $parent.walkInId"></i>-->
+            </li>
+        
+            <li class="dropdown-menu__item" data-animation="ripple" data-bind="smartClick: $parent.select, css: { &#39;is-active&#39;: false, &#39;dropdown-menu__item_special&#39;: id === $parent.walkInId }, attr: { &#39;data-id&#39;: $data.id }" data-id="3de89cadd10b52df32d87fd6cbfd75fd">
+                <span data-bind="text: $parent.fullName($data)">Test Test</span>
+                <!-- ko if: $data.address &&  ($data.address.phone || $data.address.mobilePhone) --><!-- /ko -->
+                <i class="icon icon-next" data-bind="permission: &#39;PosCustomerManagement&#39;, visible: id != $parent.walkInId, smartClick: $parent.edit"></i>
+
+                <!--<i class="icon icon-walkin" data-bind="visible: id === $parent.walkInId"></i>-->
+            </li>
+        </ul>
+        <ul class="dropdown-menu__list" data-bind="visible: customers.items().length &lt;= 1 &amp;&amp; !customers.pendingRequest()" data-scrollbar="default" style="display: none;">
+            <li class="dropdown-menu__item">
+                <span data-bind="local: &#39;customers.noResults&#39;">No results</span>
+            </li>
+        </ul>
+        <button class="btn btn_block btn_md btn_transparent" data-animation="ripple" id="add-new-customer-btn" data-bind="smartClick: $data.add">
+            <i class="icon icon-plus"></i>
+            <span data-bind="local: &#39;customer.newCustomer&#39;">New Customer</span>
+        </button>
+    </div>
+    <!-- begin overlay -->
+    <button type="button" class="overlay" data-bind="css: { &#39;is-open&#39;: visible }, smartClick: $data.hide"></button>
+    <!-- end overlay -->
+</div></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="main-header__scan" data-bind="css: { &#39;main-header__scan-cart&#39;: $data.__moduleId__ === &#39;viewmodels/cart&#39; }, if: ko.unwrap($data.isScanVisible)"></div>
+        <div class="main-header__scan main-header__scan-cart" data-bind="css: { &#39;main-header__scan-cart&#39;: $data.__moduleId__ === &#39;viewmodels/cart&#39; }, if: ko.unwrap($data.isScanVisible)"></div>
 
-        <div class="main-header__sync" data-bind="visible: $data.__moduleId__ === &#39;viewmodels/cart&#39;" style="display: none;">
-            <div class="main-header__indicator" data-bind="attr: { &#39;data-state&#39;: $data.isOnline &amp;&amp; $data.isOnline() ? &#39;active&#39; : null }"></div>
-            <button class="btn-sync" data-bind="visible: $data.isAnyPendingSync &amp;&amp; isAnyPendingSync(), smartClick: $data.startSync" style="display: none;">
+        <div class="main-header__sync" data-bind="visible: $data.__moduleId__ === &#39;viewmodels/cart&#39;">
+            <div class="main-header__indicator" data-bind="attr: { &#39;data-state&#39;: $data.isOnline &amp;&amp; $data.isOnline() ? &#39;active&#39; : null }" data-state="active"></div>
+            <button class="btn-sync" data-bind="visible: $data.isAnyPendingSync &amp;&amp; isAnyPendingSync(), smartClick: $data.startSync">
                 <span class="btn-sync__title" data-bind="local: &#39;cart.sync&#39;">Sync</span>
                 <i class="icon icon-sync btn-sync__icon"></i>
             </button>
@@ -1282,19 +2073,67 @@
         </div>
     </header>
 
-    <nav class="menu is-open submenu" data-bind="css: { &#39;is-open&#39;: navigationPanel().isOpen(), submenu: navigationPanel().parent() }">
+    <nav class="menu" data-bind="css: { &#39;is-open&#39;: navigationPanel().isOpen(), submenu: navigationPanel().parent() }">
         <header class="menu__header" data-menu-close="menu" data-animation="ripple" data-bind="with: navigationPanel">
             <i class="icon icon-back menu__icon" id="fat-close-main-menu" data-bind="smartClick: close"></i>
-            <div class="title-xlg menu__title submenu" data-bind="smartClick: close, text: title, css: { submenu: parent }">Settings</div>
+            <div class="title-xlg menu__title" data-bind="smartClick: close, text: title, css: { submenu: parent }">Metro Store</div>
         </header>
         <div class="menu__container" data-bind="with: navigationPanel">
             <div class="menu__account" data-bind="html: acountId">Account ID: 8542</div>
             <ul class="nav" data-bind="foreach: router.navigationModel">
-                <!-- ko if: $data.parent === $parent.parent() --><!-- /ko -->
+                <!-- ko if: $data.parent === $parent.parent() -->
+                <li class="nav__item" data-bind="css: { &#39;is-active&#39;: $parent.activeRoute() === $data }">
+                    <a class="nav__link" data-bind="smartClick: $parent.selectMenu">
+                        <i class="nav__icon icon icon-pos" data-bind="attr: { uur: $data.route }, css: iconClass" uur="cart"></i>
+                        <span data-bind="text: $parent.itemLabel($data)">POS</span>
+                    </a>
+                </li>
+                <!-- /ko -->
             
-                <!-- ko if: $data.parent === $parent.parent() --><!-- /ko -->
+                <!-- ko if: $data.parent === $parent.parent() -->
+                <li class="nav__item" data-bind="css: { &#39;is-active&#39;: $parent.activeRoute() === $data }">
+                    <a class="nav__link" data-bind="smartClick: $parent.selectMenu">
+                        <i class="nav__icon icon icon-orders" data-bind="attr: { uur: $data.route }, css: iconClass" uur="transactions"></i>
+                        <span data-bind="text: $parent.itemLabel($data)">Orders</span>
+                    </a>
+                </li>
+                <!-- /ko -->
             
-                <!-- ko if: $data.parent === $parent.parent() --><!-- /ko -->
+                <!-- ko if: $data.parent === $parent.parent() -->
+                <li class="nav__item" data-bind="css: { &#39;is-active&#39;: $parent.activeRoute() === $data }">
+                    <a class="nav__link" data-bind="smartClick: $parent.selectMenu">
+                        <i class="nav__icon icon icon-pos" data-bind="attr: { uur: $data.route }, css: iconClass" uur="cart"></i>
+                        <span data-bind="text: $parent.itemLabel($data)">Manual Refund</span>
+                    </a>
+                </li>
+                <!-- /ko -->
+            
+                <!-- ko if: $data.parent === $parent.parent() -->
+                <li class="nav__item" data-bind="css: { &#39;is-active&#39;: $parent.activeRoute() === $data }">
+                    <a class="nav__link" data-bind="smartClick: $parent.selectMenu">
+                        <i class="nav__icon icon icon-close" data-bind="attr: { uur: $data.route }, css: iconClass" uur="cashregister"></i>
+                        <span data-bind="text: $parent.itemLabel($data)">Close Register</span>
+                    </a>
+                </li>
+                <!-- /ko -->
+            
+                <!-- ko if: $data.parent === $parent.parent() -->
+                <li class="nav__item" data-bind="css: { &#39;is-active&#39;: $parent.activeRoute() === $data }">
+                    <a class="nav__link" data-bind="smartClick: $parent.selectMenu">
+                        <i class="nav__icon icon icon-cc" data-bind="attr: { uur: $data.route }, css: iconClass" uur="droppickupcash"></i>
+                        <span data-bind="text: $parent.itemLabel($data)">Payins/Payouts</span>
+                    </a>
+                </li>
+                <!-- /ko -->
+            
+                <!-- ko if: $data.parent === $parent.parent() -->
+                <li class="nav__item" data-bind="css: { &#39;is-active&#39;: $parent.activeRoute() === $data }">
+                    <a class="nav__link" data-bind="smartClick: $parent.selectMenu">
+                        <i class="nav__icon icon icon-cog" data-bind="attr: { uur: $data.route }, css: iconClass" uur=""></i>
+                        <span data-bind="text: $parent.itemLabel($data)">Settings</span>
+                    </a>
+                </li>
+                <!-- /ko -->
             
                 <!-- ko if: $data.parent === $parent.parent() --><!-- /ko -->
             
@@ -1305,8 +2144,8 @@
                 <!-- ko if: $data.parent === $parent.parent() -->
                 <li class="nav__item" data-bind="css: { &#39;is-active&#39;: $parent.activeRoute() === $data }">
                     <a class="nav__link" data-bind="smartClick: $parent.selectMenu">
-                        <i class="nav__icon icon icon-print" data-bind="attr: { uur: $data.route }, css: iconClass" uur="printer-settings"></i>
-                        <span data-bind="text: $parent.itemLabel($data)">Printer Setup</span>
+                        <i class="nav__icon icon icon-sync" data-bind="attr: { uur: $data.route }, css: iconClass" uur="cart"></i>
+                        <span data-bind="text: $parent.itemLabel($data)">Synchronize</span>
                     </a>
                 </li>
                 <!-- /ko -->
@@ -1314,8 +2153,8 @@
                 <!-- ko if: $data.parent === $parent.parent() -->
                 <li class="nav__item" data-bind="css: { &#39;is-active&#39;: $parent.activeRoute() === $data }">
                     <a class="nav__link" data-bind="smartClick: $parent.selectMenu">
-                        <i class="nav__icon icon icon-cash" data-bind="attr: { uur: $data.route }, css: iconClass" uur="cashdrawer-settings"></i>
-                        <span data-bind="text: $parent.itemLabel($data)">Cash Drawer</span>
+                        <i class="nav__icon icon icon-help" data-bind="attr: { uur: $data.route }, css: iconClass" uur="help"></i>
+                        <span data-bind="text: $parent.itemLabel($data)">Help</span>
                     </a>
                 </li>
                 <!-- /ko -->
@@ -1323,33 +2162,13 @@
                 <!-- ko if: $data.parent === $parent.parent() -->
                 <li class="nav__item" data-bind="css: { &#39;is-active&#39;: $parent.activeRoute() === $data }">
                     <a class="nav__link" data-bind="smartClick: $parent.selectMenu">
-                        <i class="nav__icon icon icon-cc" data-bind="attr: { uur: $data.route }, css: iconClass" uur="terminalSetup"></i>
-                        <span data-bind="text: $parent.itemLabel($data)">Terminal Setup</span>
+                        <i class="nav__icon icon icon-exit" data-bind="attr: { uur: $data.route }, css: iconClass" uur="logout"></i>
+                        <span data-bind="text: $parent.itemLabel($data)">Logout</span>
                     </a>
                 </li>
                 <!-- /ko -->
             
                 <!-- ko if: $data.parent === $parent.parent() --><!-- /ko -->
-            
-                <!-- ko if: $data.parent === $parent.parent() --><!-- /ko -->
-            
-                <!-- ko if: $data.parent === $parent.parent() --><!-- /ko -->
-            
-                <!-- ko if: $data.parent === $parent.parent() -->
-                <li class="nav__item" data-bind="css: { &#39;is-active&#39;: $parent.activeRoute() === $data }">
-                    <a class="nav__link" data-bind="smartClick: $parent.selectMenu">
-                        <i class="nav__icon icon icon-exit" data-bind="attr: { uur: $data.route }, css: iconClass" uur="deactivateDevice"></i>
-                        <span data-bind="text: $parent.itemLabel($data)">Deactivate</span>
-                    </a>
-                </li>
-                <!-- /ko -->
-
-                <li class="nav__item is-active">
-                    <a class="nav__link">
-                        <i class="nav__icon icon icon-bookmarks"></i>
-                        <span data-bind="text: $parent.itemLabel($data)">Certificates</span>
-                    </a>
-                </li>
             </ul>
         </div>
     </nav>
@@ -1364,7 +2183,7 @@
 </div></div>
 </div></div>
 
-        <!--script src="./Terminal Setup _ eHopper POS_files/main-built.js"></script-->
+        <script src="./AllFiles/main-built.js"></script>
     <script>
         window.addEventListener('load', function () {
         
@@ -1393,4 +2212,16 @@
     </script>
 
 
-<audio src="content/sounds/Effect_Tick.wav"></audio></body></html>
+<audio src="content/sounds/Effect_Tick.wav"></audio><div class="modalBlockout" style="z-index: 1051; opacity: 0.2;"></div><div class="modalHost" style="z-index: 1052; opacity: 1;"><div class="app-dialog" data-bind="with: model, style: { &#39;marginLeft&#39;: style.marginLeft(), &#39;marginTop&#39;: style.marginTop(), &#39;width&#39;: style.width() + &#39;px&#39;, &#39;height&#39;: style.height() + &#39;px&#39;, &#39;backgroundColor&#39;: style.bgColor }" data-view="views/appDialog" data-active-view="true" style="margin-left: -715px; margin-top: -338.5px; width: 1440px; height: 687px; visibility: visible; overflow: auto;">
+    <header class="main-header" data-bind="attr: {onload:startLoading(), onresize: resizeModalWindow($root)}">
+        <h3 style="text-align: center; font-size:large; vertical-align: middle;" data-bind="text: namesLocalized[0].name">MetroPCS EDGE</h3>
+        <button class="main-header__back btn-back" data-bind="click: close">
+            <i class="icon icon-back btn-back__icon"></i>
+            <span class="btn-back__title">Back</span>
+        </button>
+    </header>
+
+    <div class="app-dialog_content">
+        <iframe data-bind="attr: { src: getUrlForFrame(posUrl), onload:stopLoading()}, style: { &#39;width&#39;: &#39;100%&#39;, &#39;height&#39;: (style.height() - 120) + &#39;px&#39; }" src="./AllFiles/saved_resource.html" style="width: 100%; height: 567px;"></iframe>
+    </div>
+</div></div></body></html>
